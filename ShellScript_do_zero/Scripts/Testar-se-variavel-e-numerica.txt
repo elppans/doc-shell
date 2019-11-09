@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+verificar se uma variável é ou não numérica.
+Script simples, que valida inclusive o + e -.
+Fonte:
+https://www.vivaolinux.com.br/script/Testar-se-variavel-e-numerica
+
+if [[ $1 = ?(+|-)+([0-9]) ]] ; then 
+echo "numerico"
+else
+echo "nao numerico"
+fi
