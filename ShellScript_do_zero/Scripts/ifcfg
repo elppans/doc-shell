@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ( ifconfig | grep Link ) >> /dev/null
+		then
+	ifconfig | cut -d " " -f "1" | head -1
+		else
+	ifconfig | cut -d ":" -f "1" | head -1
+fi

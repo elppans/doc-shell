@@ -1,0 +1,8 @@
+
+Exemplo:
+
+PATH=$PATH:~/opt/bin
+
+OU
+
+PATH=~/opt/bin:$PATH

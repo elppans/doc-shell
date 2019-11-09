@@ -1,0 +1,2 @@
+Primeira linha: head -1 arquivo.txt
+Útima linha: tail -1 arquivo.txt

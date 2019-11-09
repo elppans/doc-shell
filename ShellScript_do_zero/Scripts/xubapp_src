@@ -1,0 +1,140 @@
+#!/bin/bash
+
+Aviso(){
+	clear
+	echo -e '\n Este e um script de instalacao/configuracao para Ubuntu \n'
+	echo -e '\b Sera adicionado alguns GPGs e Repositorios no Ubuntu,'
+	echo -e '\b Apos a adicao, ira ser feito um upgrade no sistema para nao haver falhas'
+	echo -e '\b Na instalacao de pacotes importantes.'
+	echo -e '\b E necessario habilitar manualmente todos os repositorios via \n "Canais de Software" na "Central de programas".\n'
+	echo -e '\b Apos isto sera feito instalacoes por secao.\n\n'
+	echo -e '\b Tudo o que vou fazer de agora em diante sera por etapa.'
+	echo -e '\b Sao 3 etapas. Passando primeiro pela "Compilacao e Manutencao";'
+	echo -e '\b A segunda etapa é sobre "Multimedia e Codecs";'
+	echo -e '\b E finalmente a terceira e ultima etapa, que e sobre "Itens Opcionais"'
+	echo -e '\b Voce pode escolher entre usar a opcao de preferencia, pular ou sair.'
+	echo -e '\b Lembre-se de que, qualquer decisao e de sua propria conta e risco.\n\n'
+	echo -e '\b Para escolher, aperte a letra em que esta entre parenteses (Maiusculo) \n e aperte "Enter".\n\n'
+	echo -e '\b Deseja continuar ou Sair?'
+	echo -e '\b Digite (C) para continuar.'
+	echo -e '\b Digite (Q) para sair.'
+read opcao
+case $opcao in
+	C) Continuar ;;
+	Q) Sair ;;
+	*) "Opcao invalida" ; echo ; Aviso ;;
+esac
+}
+Continuar(){
+	clear
+	echo -e '\n Continuando com a configuracao...'
+	read -t 10
+	clear
+	addgpg
+}
+Sair(){
+	clear
+	echo -e '\n Saindo da configuracao...'
+	echo -e '\b Espere 30 segundos ou aperte "Enter".'
+	read -t 30
+	exit 0
+}
+Aviso
+
+###Inicio addgpg
+addgpg(){
+sudo sh -c 'echo -e "" > /var/cache/addgpg'
+sudo sh -c 'echo -e "" > /var/cache/mtmcds'
+	clear
+	echo -e '\n Adicionar GPG e Repositorios ao sistema.\n'
+	echo -e '\b Ira ser adicionado os seguintes repositorios principais:'
+	echo -e '\b Oracle VM VirtualBox. Maquina Virtual.'
+	echo -e '\b Depôt MultiSystem. Criador multiboot usb.'
+	echo -e '\b videolan. Dependências para media.'
+	echo -e '\b Google Chrome e talkplugin. Navegador e plugin do Google.'
+	echo -e '\b Remastersys. Programa para backup e remasterizacao do sistema.'
+	echo -e '\b Ubuntu Cambrium. Complemento para os repositorios padroes do sistema.'
+	echo -e '\b Wine. Para suporte a arquivos/programas Microsoft\n\n'
+	echo -e '\b Adicionar Repositorios (A)'
+	echo -e '\b Apenas fazer um upgrade (U)'
+	echo -e '\b Pular para a etapa, "Compilacao e Manutencao" (C)'
+	echo -e '\b Pular para a etapa, "Multimedia e Codecs" (M)'
+	echo -e '\b Sair da configuracao (Q)'
+read opcao
+case $opcao in
+	A) Adicionar ;;
+	U) Upgrade ;;
+	C) Compilacao ;;
+	M) MultimediaCodecs ;;
+	Q) Sair ;;
+	*) "Opcao invalida" ; echo ; addgpg ;;
+esac
+}
+###Inicio Adicionar
+Adicionar(){
+if [ -e /var/cache/addgpg ]
+			then
+	clear
+	echo -e 'Adicionar Repositorios Ok!'
+	echo -e "Voltando ao menu principal..."
+	read -t 30
+	addgpg
+			else
+clear
+echo -e "Nao ha como executar esta acao!"
+echo -e "Voltando ao menu principal..."
+read -t 30
+addgpg
+fi
+}
+###Fim Adicionar
+
+###Inicio Upgrade
+Upgrade(){
+	clear
+	echo -e "Upgrade Ok!"
+	echo -e "Voltando ao menu principal..."
+	read -t 30
+	addgpg
+}
+###Fim Upgrade
+
+###Inicio Compilacao
+Compilacao(){
+if [ -e /var/cache/addgpg ]
+			then
+	clear
+	echo -e '\n Compilacao Ok!...'
+	echo -e "Voltando ao menu principal..."
+	read -t 30
+	addgpg
+			else
+clear
+echo -e "Nao ha como executar esta acao!"
+echo -e "Voltando ao menu principal..."
+read -t 30
+addgpg
+fi
+}
+###Fim Compilacao
+
+###MultimediaCodecs Inicio
+MultimediaCodecs(){
+if [ -e /var/cache/mtmcds ]
+			then
+clear
+echo -e 'Multimedia Ok!'
+read -t 30
+addgpg
+			else
+clear
+echo -e "Nao ha como executar esta acao!"
+echo -e "Voltando ao menu principal..."
+read -t 30
+addgpg
+fi
+}
+###MultimediaCodecs FIM
+
+addgpg
+######FIM addgpg

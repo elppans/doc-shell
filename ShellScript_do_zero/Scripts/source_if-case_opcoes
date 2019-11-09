@@ -1,0 +1,56 @@
+#!/bin/bash
+
+PA="$1" #-d
+PB="$2" #device
+PC="$3" #-p
+PD="$4" #partição
+PE="$5" #-m
+PF="$6" #memoria
+
+
+if [ "$PA" = "-d" ]; then # Parâmetro 1 (Inicio)
+if [ "$PC" = "-p" ]; then # Parâmetro 3 (Inicio)
+if [ "$PE" = "-m" ]; then # Parâmetro 5 (Inicio)
+if [ -n "$PF" ]; then # Parâmetro 6 (Inicio - não nulo)
+if [ "$PF" -gt "0" ]; then # Parâmetro 6 (Inicio - maior que)
+if [ -n "$PD" ]; then # Parâmetro 4 (Inicio - não nulo)
+if [ "$PD" -gt "0" ]; then # Parâmetro 4 (Inicio - maior que)
+if [ -n "$PB" ]; then # Parâmetro 2 (Inicio - não nulo)
+	echo "Você digitou [$PA] [$PB] [$PC] [$PD] [$PE] [$PF]!" # Comandos
+	else # Parametro 2 (Contra resposta - não nulo)
+	echo "Parâmetro 2 NOK! - não nulo"
+fi # Parametro 2 (FIM - vazio)
+	else # Parametro 4 (Contra resposta - maior que)
+	echo "Parâmetro 4 NOK! - maior que"
+	fi # Parametro 4 (FIM - maior que)
+	else # Parametro 4 (Contra resposta - não nulo)
+	echo "Parâmetro 4 NOK! - não nulo"
+fi # Parametro 4 (FIM - vazio)
+	else # Parametro 6 (Contra resposta - maior que)
+	echo "Parâmetro 6 NOK! - maior que"
+	fi # Parametro 6 (FIM - maior que)
+	else # Parametro 6 (Contra resposta - não nulo)
+	echo "Parâmetro 6 NOK! - não nulo"
+fi # Parametro 6 (FIM - vazio)
+	else # Parametro 5 (Contra resposta -m)
+	echo "Parâmetro 5 NOK! - deve usar -m"
+fi # Parametro 5 (FIM)
+	else # Parametro 3 (Contra resposta -p)
+	echo "Parâmetro 3 NOK! - deve usar -p"
+fi # Parametro 3 (FIM)
+	else # Parametro 1 (Contra resposta -d)
+#	echo "Parâmetro 1 NOK! - deve usar -d"
+# Parâmetro case para parâmetro 1
+case $@ in
+	--help|-h)
+	echo "Você digitou help!"
+		;;
+	*)
+	echo "Usar: Comando { -d /dev/sdX -p n}"
+		;;
+esac
+#exit
+# Parâmetro case para parâmetro 1 - FIM
+fi # Parametro 1 (FIM)
+
+

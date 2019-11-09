@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+XYCFGCFG=$2
+XCFG00=1680x1050
+XCFG01=`xrandr|awk 'BEGIN {} /^.*\*/{printf("%s;", $1)} END {}' | cut -d ";" -f "1"`
+
+echo "$XCFG01" > "$GCPMD/xmon.cfg"
+
+if [ -z "$XYCFG" ] ; then
+
+DEFAULT=$(xrandr|awk 'BEGIN {} /^.*primary/{printf("%s;", $1)} END {}' | cut -d ";" -f "1" )
+xrandr --output $DEFAULT --mode "$XCFG00"
+
+	export WINEDLLOVERRIDES="$EXDLL"
+	export WINEDEBUG="fixme-all,err-all,warn+cursor,-all"
+	cd "$GCDIR"
+	WINEPREFIX="$GCPATH" "$WINEX" "$GCEXEC"
+
+xrandr --output $DEFAULT --mode `cat $GCPMD/xmon.cfg`
+
+else
+
+DEFAULT=$(xrandr|awk 'BEGIN {} /^.*primary/{printf("%s;", $1)} END {}' | cut -d ";" -f "1" )
+xrandr --output $DEFAULT --mode "$XYCFG"
+
+	export WINEDLLOVERRIDES="$EXDLL"
+	export WINEDEBUG="fixme-all,err-all,warn+cursor,-all"
+	cd "$GCDIR"
+	WINEPREFIX="$GCPATH" "$WINEX" "$GCEXEC"
+
+xrandr --output $DEFAULT --mode `cat $GCPMD/xmon.cfg`
+
+fi
+
+	[ "$XMONCFG" = 1 ] && \ {
+	bash "$0" -mcs \ }

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+AA="echo $(cat teste0)"
+BB="echo $(cat teste1)"
+CC="echo $(cat teste2)"
+DD="echo $(cat teste3)"
+
+echo -e 'teste=' > teste0
+echo -e 'teste=teste01' > teste1
+echo -e 'teste=teste02' > teste2
+echo -e 'teste=teste02' > teste3
+
+echo -e 'Se o conteúdo do arquivo "0" é igual ao conteúdo do aquivo "1"!'
+if [ "$AA" = "$BB" ]
+	then
+echo "OK"
+	else
+echo "NOK"
+fi
+
+echo -e 'Se o conteúdo do arquivo "2" é igual ao conteúdo do aquivo "3"!'
+if [ "$CC" = "$DD" ]
+	then
+echo "OK"
+	else
+echo "NOK"
+fi
+
+echo -e 'Se o conteúdo do arquivo "0" é diferente ao conteúdo do aquivo "1"!'
+if [ "$AA" != "$BB" ]
+	then
+echo "OK"
+	else
+echo "NOK"
+fi
+
+echo -e 'Se o conteúdo do arquivo "2" é diferente ao conteúdo do aquivo "3"!'
+if [ "$CC" != "$DD" ]
+	then
+echo "OK"
+	else
+echo "NOK"
+fi

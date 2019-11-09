@@ -1,0 +1,52 @@
+#!/bin/bash
+
+##Comando touch2
+##Autor: Marcelo Klumpp (Elppans Dark Elven)
+
+FOPT=$*
+
+case $FOPT in
+
+--help|-h)
+echo "
+Uso: touch2 arquivo
+
+Comando para criar um arquivo vazio e criar duplicatas.
+Cria o arquivo, mas se o mesmo existir, é duplicado o mesmo com um Nº crescente na frente começando com o Nº 1.
+Se houver uma pasta com o mesmo nome há o mesmo efeito, criando um arquivo com efeito duplicado. Exemplo:
+
+file file_1 file_2....
+paste file_1 file_2...
+
+Pode-se criar vários arquivos de uma vez, mas a duplicata apenas funciona com um (1) arquivo de vez.
+
+Opções:
+
+Diferente do comando touch original, este não tem opções, apenas o {--help|-h}
+"
+exit 1
+;;
+esac
+
+#File
+if [ -e "./$FOPT" ]; then
+
+#FileN1
+if [ -e "$FOPT"_1 ]; then
+#FileNumber	
+ if [ -e ./"$FOPT"_$(ls -qBv "$FOPT"_* | cut -f "2" -d "_" | tail -1) ]; then
+	touch "$FOPT"_$(expr 1 + $(ls -qBv "$FOPT"_* | cut -f "2" -d "_" | tail -1))
+ fi
+#FileNumber
+ else
+	touch "$FOPT"_$(expr 0 + 1)
+ fi
+#FileN1
+else
+	touch $FOPT
+fi
+#File
+
+
+#echo "Mostrando último arquivo criado:"
+#ls -qBv "$FOPT"_* | cut -f "2" -d "_" | tail -1

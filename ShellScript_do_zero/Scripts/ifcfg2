@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ifconfig | head -1 | awk '{print $1}' | cut -d ":" -f "1" | head -1

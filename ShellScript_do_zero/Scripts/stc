@@ -1,0 +1,162 @@
+#! /bin/bash
+#
+# stcserver - A service to automatically init STC Server.
+#
+# stcserver: 345 04 04
+# description: A service to automatically init\
+#              STC Server at boot.
+
+# http://fedoraproject.org/wiki/FCNewInit/Initscripts
+### BEGIN INIT INFO
+# Provides: stcserver_autoinit STC
+# Default-Start: 3 4 5
+# Default-Stop: 0 1 2 6
+# Required-Start: $local_fs
+# Short-Description: stcserver autoinit service
+# Description: A service to automatically init STC Server at boot.
+### END INIT INFO
+
+. /etc/init.d/functions
+
+# Script original com base em sysstat
+
+# Copiar este script para a pasta /etc/init.d com o nome stc e
+# ativa-lo com o comando "chkconfig stc on".
+
+# Todos os arquivos ".sh" devem conter o parametro "&" após a linha de comando do java.
+
+# Antes de usar, converta os arquivos ".sh" com o dos2unix e dê permissão de execução.
+
+# Os arquivos "editor.sh" e "monitor.sh" devem conter, na primeira linha após o parâmetro "bash"
+# o conteúdo "export DISPLAY=:0.0". Se não houver, ocorrerá um erro de exeção do java dizendo
+# que não há nenhuma variável do X11 configurada: ..."No X11 DISPLAY variable was set"...
+
+#pidof
+STCINIT=/etc/init.d/stc
+PIDFILE=/var/run/stcstat.pid
+CDSTC="cd /Zanthus/Zeus/stc"
+STC=/Zanthus/Zeus/stc/Servidor.sh
+STE=/Zanthus/Zeus/stc/editor.sh
+STM=/Zanthus/Zeus/stc/monitor.sh
+STCPID="pgrep -f STC"
+STCK="kill -9"
+
+case "$1" in
+  start)
+if [ -e $STCINIT ]
+		then
+	$CDSTC
+#	$STC ; sleep 1
+	$STC & sleep 1
+	rm -rf $PIDFILE
+	echo -e "$($STCPID)" > $PIDFILE
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  status)
+if [ -e $STCINIT ]
+		then
+	$STCPID -l
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  stop)
+if [ -e $STCINIT ]
+		then
+	echo -e "Parando Servidor STC..."
+	read -t 2
+	$STCK $(cat $PIDFILE) ;
+	echo -e "Servidor STC parado com sucesso!"
+	read -t 1
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  stop-force)
+if [ -e $STCINIT ]
+		then
+	echo -e "Parando Servidor STC..."
+	read -t 2
+	$STCK $($STCPID) ;
+	echo -e "Servidor STC parado com sucesso!"
+	read -t 1
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  restart)
+if [ -e $STCINIT ]
+		then
+	echo -e "Parando Servidor STC..."
+	read -t 2
+	$STCK $(cat $PIDFILE) ;
+	echo -e "Servidor STC parado com sucesso!"
+	read -t 1
+	$CDSTC
+#	$STC ; sleep 1
+	$STC &  sleep 1
+	rm -rf $PIDFILE
+	echo -e "$($STCPID)" > $PIDFILE
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  edit)
+if [ -e $STCINIT ]
+		then
+	export DISPLAY=:0.0
+	$CDSTC
+#	$STE ; sleep 1
+	$STE &  sleep 1
+
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  editor)
+if [ -e $STCINIT ]
+		then
+	export DISPLAY=:0.0
+	$CDSTC
+#	$STE ; sleep 1
+	$STE &  sleep 1
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  monitor)
+if [ -e $STCINIT ]
+		then
+	export DISPLAY=:0.0
+	$CDSTC
+	$STM &  sleep 1
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+	;;
+
+  restart)
+	;;
+
+  *)
+
+if [ -e $STCINIT ]
+		then
+	echo "Usar: stc {start|stop|status|restart|edit|editor|monitor}"
+		else
+	echo -e 'Servico STC indisponivel!'
+fi
+
+esac
+
+exit
+

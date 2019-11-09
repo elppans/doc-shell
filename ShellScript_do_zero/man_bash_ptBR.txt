@@ -1,0 +1,2150 @@
+Download no link:
+https://sites.google.com/site/hildodutra/home/bash.txt?attredirects=0&d=1
+
+http://www.zago.eti.br/bash.txt
+
+FAQ, dicas e indicações de tutorias pra uso do bash, interpretador da
+linha de comando, inclue também csk, ksh, sh e outras.
+
+Veja também algumas mensagens e dicas relacionadas ao bash no FAQ:
+http://www.zago.eti.br/shell.txt
+http://www.zago.eti.br/terminal.txt
+
+Use CTRL+F para refinar a pesquisa.
+
+Sobre o uso do bash com outras ferramentas, uso na linha de comando,
+expressões regulares, shell script, modelos de scripts e etc... veja em:
+
+http://www.zago.eti.br/script/A-menu-scripts.html
+
+
+
+  bash - GNU Bourne-Again SHell
+
+Também pode usar sh que é um link pra bash:
+ls -la /bin/sh
+lrwxrwxrwx  1 root root 4 2004-07-31 12:03 /bin/sh -> bash
+
+ ksh - Public domain Korn shell
+
+ tcsh - C shell with file name completion and command line editing
+
+Bash é um interpretador de comandos compatível com sh, que executa
+comandos lidos da entrada padrão ou de um arquivo. Bash também
+incorpora características úteis das shells Korn e C (ksh e csh).
+Bash tem sido desenvolvido para ser uma implementação compatível
+com a especificação IEEE Posix para shells e ferramentas (IEEE
+Working Group 1003.2).
+
+Em sistemas GNU/Linux tem una interface pra linha de comando chamada de
+console, shell, terminal, modo texto e referencias semelhantes, existem
+diversas interfaces pro usuário intergir com o sistema, tais como,
+bash, csk, ksh, sh e outras....
+São ferramentas com muitos recursos amigaveis, o modo texto acaba por
+assustar os iniciantes, mas pode acreditar, com o uso destas ferramentas
+voce faz muito mais, mais rapidamente e melhor, lembre que pode usar em
+conjunto ou alternando entre o ambiente gráfico e o shell pra explorar
+as facilidades que cada uma lhe oferece, além das inumeras teclas de
+atalho o mouse também funciona pra selecionar, copiar e colar, faça um
+teste agora, copie esta linha:
+
+   cat ~/.bash_history
+
+Agora abra um terminal, posicione o cursor do mouse dentro da janela
+do terminal e clique com botão do meio, botão auxiliar ou com as
+teclas SHIFT+INSERT, uma destas ações vai colar a linha de comando no
+terminal e mostrar seu historico de comandos.
+
+
+Neste documento tem varios exemplos de comando, mensagens da lista Linux-br,
+mas não esgota o assunto, explore as pesquisas no Google, pra consultar o
+manual, no terminal digite:
+
+  man bash
+  man ksh
+  man tcsh
+  bash --help
+  bash -c help
+  bash -c "help set"
+  man hash
+  isto mesmo hash com "h"
+
+refinar pequisa no manual do bash, help <recurso_bash>
+
+Exemplos para pesquisar somente sobre echo e eval
+
+help echo
+
+help Redirecting
+
+somente help no prompt retorna as opções de uso.
+
+
+Pra redirecionar a saida pra arquivo acrescente ">" arquivo.txt,
+exemplo:  bash -c help > helpbash.txt
+
+Consulte o dicionario do google, na caixa de pesquisa digite:
+
+define:bash
+
+define:ksh
+
+define:csh
+
+define:tcsh
+
+
+Pesquisas no google, acrescente: +bash ~linux
+
+Exemplo, ajuda sobre while, coloque na caixa de pesquisa:
+
+  while +bash ~linux
+
+  while +ksh ~linux
+
+  while +csh ~linux
+
+Informações sobre os diversos consoles, conferir qual pacote pertencem
+e como instalar:
+
+Pra instalar e obter mais informações dos pacotes:
+
+O pacote que instala o bash tem o nome de bash
+
+O pacote que instala o ksh tem o nome de pdksh
+ rpm -qa | grep ksh
+pdksh-5.2.14-44471cl
+
+O pacote que instala o csh tem o nome de tcsh
+  rpm -qa | grep csh
+tcsh-6.12.00-55232cl
+
+Em escripts pode escolher o interpretador, claro que respeitando a
+compatibilidade dos comandos, indique isto na primeira linha do script,
+pra invocar o bash pode usar bash ou o link dele sh:
+
+#!/bin/bash
+
+Ou #!/bin/sh
+
+Pra interpretador ksh:
+  #!/bin/ksh
+
+Pra interpretador perl:
+  #!/usr/bin/perl -w
+
+
+Veja outros arquivos de configuração do bash, execute ls -la no seu home para
+listar todos, exemplo;
+
+ .bash_history
+ .bash_logout
+ .bash_profile
+ .bashrc
+
+ 
+********************************************************************
+
+Dica - acessar via ambiente gráfico arquivos ocultos (que iniciam com ponto).
+
+Abra o konqueror e clique no botao da casinha (home), na URL (linha localização ) 
+do konqueror acrescente /.nome-do-arquivo ou diretório, exemplo para acessar o 
+.bash_history do usuário zago;
+
+ file:/home/zago/.bash_history
+ 
+ 
+********************************************************************
+
+Indicações de sites, material pra consulta e download:
+
+lista de bash (shell-script) em portugues
+http://groups.yahoo.com/group/shell-script
+
+http://aurelio.net/shell/canivete.html
+Canivete Suíço do Programador Shell (bash)
+Códigos de Retorno de Comandos
+Excelentes dicas, exemplos, tabelas diversas e etc..
+
+http://aurelio.net/doc/sem-mouse-HOWTO.html
+Sem Mouse HOWTO
+E o que é esse sem-mouse-HOWTO?
+    Este documento descreve como trabalhar em um computador desprovido
+    de mouse, rodando o sistema operacional Linux.
+
+
+BASH Programming - Introduction HOW-TO
+Em ingles, muitas dicas e exemplos de script.
+http://www.ibiblio.org/pub/Linux/docs/HOWTO/other-formats/html_single/Bash-Prog-Intro-HOWTO.html
+
+http://www.linux.com/guides/abs-guide/
+Advanced Bash-Scripting Guide
+Extensa e detalhada documentação pra comandos e programação em
+bash, download, modelos de scripts e muito mais -> em ingles.
+
+Advanced Bash Scripting Guide.
+Download:
+http://personal.riverusers.com/~thegrendel/abs-guide-2.8.tar.bz2
+pagina do autor:
+http://personal.riverusers.com/~thegrendel/software.html
+
+
+http://www.tldp.org/LDP/abs/html/index.html
+http://tldp.org/LDP/abs/html/
+Advanced Bash-Scripting Guide
+Tutorial em ingles, programação em shell script, com muitos exemplos
+
+http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+excelente tutorial sobre bash uso e programação - (em inglês)
+
+
+Bash Prompt HOWTO
+http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html
+
+
+Advanced Bash-Scripting Guide
+http://www.tldp.org/LDP/abs/html/index.html
+
+Algumas indicações de páginas em portugues com dicas sobre
+atalhos e bash em geral.
+
+http://br-linux.org/tutoriais/002229.html
+Atalhos de teclado no Bash
+
+http://www.linuxdicas.com.br/sections-viewarticle-52.html
+Linha de comando/Bash (parte 1)
+
+Curiosidade - webserver escrito em BASH.
+http://lrp.steinkuehler.net/Packages/weblet.htm
+********************************************************************
+
+Executar script ou comandos junto com o boot, tem algumas diferenças entre as distros, veja na documentação de sua distro, CL10  pode colocar no /etc/rc.d/rc.local, comandos ou script exclusivo de um usuáiro deve colocar no .bashrc que fica dentro do home do usuário.
+ 
+Cuidado, o .bashrc é executado quando entra no shell, quando faz login
+em ambiente gráfico, KDE, Gnome ou outro qualquer, o .bashrc não é 
+executado, ou melhor, será executado somente quando abrir um terminal
+shell.
+
+Alterações no ./bashrc valem a partir da proxima vez que entrar no shell
+Pra valer na sessão atual, basta executar o comando:
+  
+  bashrc
+  
+   
+********************************************************************
+
+As configurações do usuário em  ~/.bash_profile vale somente pra login
+em modo texto, quando se faz logim em modo gráfico elas não são
+executadas, pra personalizar configurações pra ambiente gráfico procure
+nas ferramentas do próprio ambiente em uso.
+
+
+Historico de comandos.
+
+Os ultimos comandos executados no bash (shell) ficam armazenados em .bash_history 
+dentro do home do usuário, algumas distro vem configurado para guardar os ultimos
+1000, outras os ultimos 500, para ver a configuração da sua instalação, ver quantas
+linhas estão sendo salvas, execute;
+
+echo $HISTSIZE 
+
+Modifique o valor da variável para o limite desejado.
+
+O ~/.bash_history é atualizado quando encerra a sessão, durante a sessão fica 
+somente na memória, para gravar em disco durante a sessão, atualizar o arquivo
+
+history -w
+
+Limpar historico da maquina
+
+history -c
+
+ou editar e fazer as correções, use seu editor preferido ou com "vi":
+  
+  vi ~/.bash_history
+
+Alguns comandos úteis e relacionados:
+
+veja mais detalhes no manual:
+
+  man history
+  history --help
+
+Listar todos os comandos executados:
+  history
+
+Scroll look, rolar linhas ou telas m modo prompt.
+Mantenha pressionada a tecla SHIFT e pressione PageUP PageDown.
+A tecla Shift juntamente com as teclas de Up ou Down permite voltar a tela
+pra ver comandos ou resultados que já não estão visiveis na tela.
+
+
+
+PESQUISAR NO HISTORICO
+pesquisar comando executado:
+
+Digite CTRL+R e inicie a digitação da linha de comando ou qualquer
+parte dela até aparecer a linha desejada, enter executa a linha em
+evidencia, setas de direção continua exibindo as linhas proximas,
+CTRL+C sai da pesquisa, novo CTRL+R reinicia a pesquisa.
+
+  history  | grep comando
+
+Este comando filtra no historico pra exibir somente as linhas que contém a
+palavra indicada, digitando somente history listará todas as linhas do
+historico, nestes resultados as linhas são numeradas, executar uma
+linha de comando que consta no historico, digite no prompt somente "!"
+(sinal de exclamação) mais o numero da linha, exemplo para listar linhas
+de comando que utilizou scp:
+
+  history  | grep scp
+
+Pegar uma linha do resultado e executar sem alterações, digite o sinal de
+exclamação "!" mais o numero da linha, executar sem alteração a linha 53 
+basta digitar:
+
+ !53
+
+Execução automatica da ultima linha do ~.bash_history
+  !!  executa a ultima linha de comando, cuidado que não tem pergunta,
+ao digitar exclamação duas vezes e enter será executada a ultima linha
+de comando automaticamente, dependendo da linha (rm, mv ...) já sabe....
+
+Mantenha o .bash_history organizado, use seu editor preferido para 
+remover, incluir ou editar.
+
+Editar a linha de comando em tempo de execução, use CTRL+R para
+localiza-la, use as setas de direção para sair da pesquisa e fixar a linha no
+prompt, continue usando as setas para levar o cursor na posição desejada,
+faça as alterações e enter para executar.
+
+Use CTRL+R pra digitar e completar ou com mouse...
+
+Ou copiar e colar com mouse, selecione a linha que deseja executar e
+clique com botão auxilar ou botão do meio, as teclas shift+insert também
+cola.
+
+OBS.
+Em ambiente texto, selecionar e copiar com mouse, basta manter o botão acionador
+pressionado e passar o ponteiro do mouse sobre a parte desejada, para colar
+pressione o botão auxiliar ou botão do meio, isto depende da configuração
+do mouse.
+Em terminal aberto a partir do ambiente grafico, clique com botão auxiliar 
+e selecionar copiar.
+Em qualquer ambiente, para colar no terminal funciona também as teclas
+shift+insert, no terminal _não_ funcionam a combinação CTRL+C e CTRL+V.
+
+Mas pode desviar os resultados para um arquivo, importar comandos de
+um arquivo e outras facilidades, veja no site do Aurelio, tem muitas 
+dicas para quem quer acabar com o rato, veja a indicação:
+Sem Mouse HOWTO
+
+Dica.
+Faça copia do .bash_history para outro nome e abra com kwrite, no editor use
+CTRL+F e F3 (pesquisar), facilita nas alterações da linha de comando e 
+copiar, no shell cole com SHIFT+INSERT ou botão auxiliar.
+
+Quando a linha não requer alteração, pressione a tecla F11 (Kwrite
+numerar as linhas), no shell utilize o sinal de exclamação mais este numero
+para executar a linha de comando.
+
+Scroll look, rolar linhas ou telas em modo prompt, a tecla Shift juntamente
+com as teclas de Up ou Down permite voltar a tela pra ver comandos ou
+resultados que já não estão visiveis na tela.
+
+Colocar titulo na janela do Konsole, quando abre uma tela no konsole via
+KDE, pra colocar como titulo da janela o diretório atual, coloque em seu
+arquivo ~/.bashrc:
+'export PS1=$PS1"\[\e]0;\H:\w\a\]'
+
+alterar o prompt pra exibir hora corrente, nome da maquina, usuário e
+caminho completo do diretório atual, altere /etc/bashrc, comente  a
+linha "PS1="[\u@\h \W]\\$ "" e acrescente
+export PS1='\[\033[01;33m\]\t \[\033[01;32m\]\u@\h [\033[01;34m\]\w \$ \[\033[00m\]'
+veja as alterações no /etc/bashrc.
+
+#PS1="[\u@\h \W]\\$ "
+export PS1='\[\033[01;33m\]\t \[\033[01;32m\]\u@\h [\033[01;34m\]\w \$ \[\033[00m\]'
+
+exemplo de como fica o prompt:
+
+00:51:00 zago@intranet [/srv/www/default/html/programas $
+
+
+Somente pra usuários especificos.
+alterações em /etc/bashrc vale pra todos os usuários da maquina, pra
+configurar usuários especificos, altere somente no home do usuáiro,
+acrescente no final do arquivo .bash_profile esta linha:
+export PS1='\[\033[01;33m\]\t \[\033[01;32m\]\u@\h [\033[01;34m\]\w \$ \[\033[00m\]'
+
+
+  TMOUT - Fechar terminal inativo.
+  
+No bash a variável "TMOUT", define um tempo de inatividade pra dar um
+timeout no console, quando o console permanecer inativo pelo tempo em
+segundos definido no ${TMOUT}, o terminal é automaticamente encerrado.
+
+Para definir o tempo em segundos, exemplo pra 60 segundos, execute:
+   TMOUT=60
+
+Para desfazer esta configuração, zerar, remover esta configuração execute: 
+    unset TMOUT
+
+Executar comando em outro diretório e voltar, exemplo pra executar ls -la
+dentro de /tmp, tem que colocar entre parenteses:
+
+  (cd /tmp && ls -la)
+
+********************************************************************
+
+Configuração do console
+
+shopt
+
+********************************************************************
+Configuração geral.
+
+/etc/skel
+
+Quando criamos um novo usuário o sistema cria um diretorio para este
+usuario dentro de /home/  e copia para o home deste novo usuário vários
+aquivos que depois podemos ajustar para as necessidades de cada user.
+Quando esta configuração precisa ser feita para todos os usuarios o serviço
+pode ser simplificado e alterando estes arquivos em /etc/skel/ assim quando
+o sistema fizer a copia para o home do usuário durante a criação deste,
+os arquivos já vem ajustados.
+
+COMPLETAR COMANDO COM A TECLA TAB.
+No conectiva tem o pacote bash_completion, na digitação de comandos, nomes
+de arquivos ou diretórios, basta teclar tab pra completar, quando
+existe mais de uma opção pressione tab 2 vezes pra exibir as possíveis
+alternativas, procure no synaptic por ele.
+
+********************************************************************
+
+  RESUMO
+Tem muitas opções e teclas de atalhos, aqui tem um resumo das teclas de
+atalho e dicas que mais utilizo, na documentação tem muito mais....
+
+Quando operando como usuário normal exibe no prompt o sinal ($), ex.:
+[zago@faqcl10 tmp]$
+
+Quando operando como root exibe no prmpt o sinal (#), ex.:
+[zago@faqcl10 tmp]#
+
+Copiar e colar com mouse, pra selecionar o procedimento é o mesmo que se
+utiliza no ambiente gráfico, mantenha o botão acionador pressionado e
+movimente o mouse.
+A ação de copiar tem comportamente diferente quando se opera em modo
+texto e quando opera em um terminal aberto a partir do ambiente gráfico.
+Trabalhando totalmente em modo texto a ação de selecionar já copia
+automaticamente, um clique com botão auxiliar vai colar na posição atual
+do curor toda a area selecionada, isto tanto faz ser no proprio terminal,
+em outro terminal ou editores de texto, com isto voce pode copiar parte do
+que aparece na tela (selecionar) e um clique com botão auxiliar vai colar
+na posição atual do cursor.
+Trabalhando em um terminal aberto a partir do ambiente gráfico, o processo
+pra selecionar é o mesmo, pra colar precisa de um clique com botão auxiliar
+pra copiar, pra colar também requer o clique com botão auxilar, tanto no
+terminal como no ambiente gráfico.
+
+
+Resumo pra algumas teclas de atalho:
+comando       ação
+clear         limpa a tela
+CTRL+l        limpa a tela
+
+CTRL+PageUP    volta tela pra exibir o que já não é visto na tela atual
+CTRL+PageDown  Desfazer ação de CTRL+PageUP, avança tela.
+
+Pra parar e continuar a listagem na tela de longos textos:
+CTRL+s pra parar a rolagem da tela e CTRL+q continua.
+
+
+editando a linha de comando:
+Setas de direção pra esquerda e direita movimenta o cursor na
+linha em edição.
+
+Tecla (tab) completa o comando, nome do arquivo ou diretório, quando existir
+a opção, (tab) duas vezes exibe a lista disponivel pra completar o que já foi
+digitado, ex.:
+digite cd /ho mais a tecla tab
+  cd /ho<tab>
+
+tecla (del)   apaga o caracter sob o cursor
+CTRL+d        apaga o caracter sob o cursor
+tecla (backspace) apaga o caracter a esquerda do cursor.
+
+Ctrl+k        recorta da posição atual do cursor até o fim da linha
+ctrl+u        recorta da posição atual do crusor até o inicio da linha
+ctrl+y        pega (cola) o que foi recortado com CTRL+k ou CTRL+u
+tecla (home)  vai pro inicio da linha
+Ctrl-a        vai pro inicio da linha
+tecla (end)   vai pro fim da linha
+CTRL+e        vai pro fim da linha
+
+Ctrl+f ou seta pra direita avança o cursor
+Ctrl+b ou seta pra esquerda retrocede o cursor
+
+********************************************************************
+
+  fc
+  
+Pesquise sobre o uso do comando "fc".
+
+  man fc
+  
+  
+Exemplo pra listar os ultimos 15 comandos:
+
+  fc -l
+
+********************************************************************
+
+  Depurar script ou exibir no terminal as linhas executadas.
+  
+  Execute o script com a opção -xv pra exibir as linhas de comando do
+script.
+
+bash -xv seu-script
+
+
+provocar uma parada na execução do script pra analizar algum resultado,
+utilize sleep, exemplo pra parar a execução por 3 segundos:
+
+  sleep 3
+  
+Veja também sobre uso do "read"
+
+********************************************************************
+Bash History
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel <rbp@sp.conectiva.com.br>
+
+O "history" (ou histórico) no bash, apesar de extremamente poderoso,
+é muito pouco usado, além do tradicional "setinha pra cima" para exibir os
+últimos comandos.
+
+Seu comportamento é regido por algumas variáveis:
+
+HISTSIZE - Tamanho (em número de comandos) do histórico.
+HISTFILE - Arquivo em que serão salvos os comandos (normalmente
+/.bash_history).
+HISTFILESIZE - Tamanho máximo (em linhas) do arquivo selecionado acima. Se
+um valor for especificado, o arquivo será truncado para
+conter apenas o número especificado de linhas.
+
+Eu, por exemplo, uso HISTSIZE e HISTFILESIZE como 5000.
+
+Outra variável interessante é
+
+HISTCONTROL - Pode ter um dentre três valores: "ignorespace", "ignoredups"
+ou "ignoreboth". Se se usar o primeiro, comandos começando com
+espaço não vão para o histórico. Com o segundo (e isso é
+particularmente interessante), se um comando é executado mais
+de uma vez em seguida, só uma ocorrência vai para o
+histórico. O terceiro implementa ambas as funcionalidades.
+
+Finalmente, para quem costuma quebrar comandos em várias linhas
+(quem sabe isso não vai em outra dica? ;) , pode ser interessante fazer
+
+export command_oriented_history=1
+
+(ou qualquer outro valor, basta a variável estar "setada") Isso faz
+com que o bash tente salvar todas as linhas do comando, ao invés de salvar
+cada linha como se fosse um comando diferente (o comportamento padrão).
+
+O caracter associado ao histórico é '!' (exclamação). Aqui, é mais
+fácil compreender com a ajuda de exemplos:
+
+!bla - repete o último comando começando com "bla".
+
+!?bla - repete o último comando contendo "bla".
+
+!x - repete o comando de número "x" no histórico. Similarmente,
+
+!-y - repete o "y-ésimo" comando, do atual pra trás.
+
+!! - repete o último comando (ou seja, igual a !-1)
+
+!# - repete tudo o que foi digitado na linha até aquele ponto. Por exemplo,
+"ls !#" geraria "ls ls"
+
+Depois de especificada a linha de que se quer tratar (com os
+comandos anteriores), pode-se selecionar parte delas e modificá-la. Esse
+tratamento das linhas é introduzido por ':' (dois pontos).
+
+A seleção, em sua forma mais simples, é feito indicando-se um número
+relativo à posição do argumento que você quer selecionar no comando (0 -
+zero - é o comando em si). Assim, por exemplo
+
+[rbp@muppets ~]$ ls bla
+ls: bla: No such file or directory
+[rbp@muppets ~]$ !!:0
+ls
+
+A linha "!!:0" pegou a última linha e executou só o "argumento zero"
+(o comando em si). Poderíamos também fazer algo como:
+
+[rbp@muppets ~]$ man xscreensaver
+[rbp@muppets ~]$ !!:1
+xscreensaver
+
+Pode-se selecionar uma seqüência de argumentos, com "x-y" (do
+argumento de número "x" ao de número "y", inclusive). Por exemplo,
+
+[rbp@muppets ~]$ cat script1 script2 script3
+(...)
+[rbp@muppets ~]$ !!:1-2
+script1 script2
+(...)
+[rbp@muppets ~]$
+
+Complementando "^" é o argumento de número 1 (isto é, o primeiro
+argumento depois do comando em si), "$" é o último. Podem-se fazer
+abreviações como "x-" (igual a "x-$"), "-x" (igual a "1-x") ou "*" (igual a
+"1-$").
+
+Para se modificar o comando em questão (ou a porção selecionada
+dele), o método mais comum é muito semelhante ao sed:
+
+[rbp@muppets ~]$ mkdir diretorio1
+[rbp@muppets ~]$ !!:s/1/2
+mkdir diretorio2
+
+O "s/1/2" substituiu "1" por "2" no comando anterior.
+
+Juntando tudo:
+
+[rbp@muppets ~]$ export EDITOR=emacs
+[rbp@muppets ~]$ !!:1:s/EDITOR=//
+emacs
+
+Finalmente, uma dica: substituição do último comando executado pode
+ser feita rapidamente com
+
+^a^b - substitui "a" por "b" no último comando.
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 9634 assinantes.
+
+
+********************************************************************
+Bash: Estruturas Básicas
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel <rbp@sp.conectiva.com.br>
+
+É comum queremos executar a mesma função, ou uma função parecida,
+sobre uma série de argumentos, um por vez.
+Em bash, há duas estruturas básicas pra isso: "for" e "while".
+
+O "for", em bash, é diferente do "for" em linguagens como C ou
+Perl. Nessas linguagens, o "for" é simplesmente um "while" mais completo. Em
+bash, o for atua sobre uma seqüência de parâmetros (não necessariamente
+numéricos ou seqüenciais). Por exemplo:
+
+[rbp@muppets ~]$ for i in 1 2 3 4 5; do echo $i; done
+1
+2
+3
+4
+5
+[rbp@muppets ~]$
+
+Ou,
+
+[root@muppets ~]$ for login in rbp sizinha queiroz; do adduser $login; done
+[root@muppets ~]$
+
+Você pode inclusive usar o for a partir de uma saída de comando. Por
+exemplo, digamos que você tenha um arquivo com uma série de nomes de
+usuários a serem acrescentados ao sistema, como no exemplo acima:
+
+[root@muppets ~]$ for login in `cat /tmp/usuarios`; do adduser $login; done
+[root@muppets ~]$
+
+O "while", por sua vez, tem funcionamento semelhante à maioria das
+linguagens procedurais mais comuns. Um comando ou bloco de comandos continua
+a ser executado enquanto uma determinada condição for verdadeira. Por
+exemplo, imitando o exemplo acima:
+
+[rbp@muppets ~]$ while [ $i -le 5 ]; do echo $i; i=$(($i + 1)); done
+1
+2
+3
+4
+5
+[rbp@muppets ~]$
+
+Aos poucos:
+
+while [ $i -le 5 ]
+
+O "while" deve ser seguido de "verdadeiro" ou "falso". Se for
+"verdadeiro", o bloco é executado e o teste é repetido. Se for falso, não.
+
+No caso, "[ $i -le 5 ]" é uma forma de usarmos o comando
+"test". Esse comando testa uma expressão e retorna verdadeiro ou
+falso. Poderia ser escrito como
+
+while test $i -le 5
+
+"$i -le 5" é a expressão testada. O programa "test" aceita alguns
+operadores. Entre eles:
+
+-lt (less than) - primeiro argumento é menor do que o segundo
+-le (less or equal) - primeiro argumento é menor ou igual ao segundo
+-gt (greater than) - primeiro argumento é maior do que o segundo
+-ge (greater or equal) - primeiro argumento é maior ou igual ao segundo
+
+= - primeiro argumento é igual ao segundo
+!= - primeiro argumento é diferente do segundo
+
+O programa "test" pode também fazer testes "unários", ou seja, com
+só um argumento. Por exemplo,
+
+arq="/tmp/arquivo"
+tmp=$arq
+i=1
+while [ -e $tmp ]; do
+        i=$(($i+1))
+        tmp=$arq$i
+done
+touch $tmp
+
+Esse scriptzinho (note que não o fiz na linha de comando, mas
+indentado, para usá-lo a partir de um arquivo; funciona dos dois jeitos) só
+sai do loop quando achar um nome de arquivo que não exista. Ou, de forma
+mais didática, "enquanto existir (-e) o arquivo cujo nome está na variável
+$tmp, ele continua executado o bloco de comandos".
+
+Alguns dos operadores unários mais comuns são:
+
+-e - arquivo ou diretório existe
+-f - é um arquivo (em oposição a ser um diretório)
+-d - é um diretório
+-x - arquivo tem permissão de execução para o usuário atual
+-w - arquivo tem permissão de escrita pelo usuário atual
+-r - arquivo tem permissão de leitura pelo usuário atual
+
+Para mais detalhes, "man test".
+
+Continuando:
+
+do echo $i
+
+Logo após um "while <teste>", é preciso iniciar o primeiro comando
+com "do". Os seguintes (se houver), não.
+
+A próxima linha mostra um exemplo de algo que não tem nada a ver com
+a estrutura do "while" em si, mas é um truquezinho legal de bash:
+
+i=$(($i + 1))
+
+A construção "$((expressão))" é um operador matemático em bash. Isso
+é expandido para o resultado da expressão. Por exemplo,
+
+[rbp@muppets ~]$ echo $((2 + 3))
+5
+[rbp@muppets ~]$ echo $((2 - 3))  # Funciona com números negativos
+-1
+[rbp@muppets ~]$ echo $((2 * 3))
+6
+[rbp@muppets ~]$ echo $((10 / 2))
+5
+[rbp@muppets ~]$ echo $((3 / 2))  # Não usa casas decimais
+1
+[rbp@muppets ~]$
+
+Mas, como diz um amigo meu, voltando...
+
+done
+
+Isso termina "oficialmente" o loop "while". A propósito, como pode
+ter sido notado, termina o "for" também.
+
+Como foi dito acima, o while espera "verdadeiro" ou "falso". Eu
+nunca disse que esperava isso só do programa "test" :)
+
+Com efeito, qualquer expressão pode ser usada, e seu valor de
+retorno será utilizado para determinar se é "verdadeiro" ou "falso". Para
+quem não sabe, todo programa em Unix retorna um valor ao terminar sua
+execução. Normalmente, se tudo correu bem o valor retornado é 0 (zero). Se
+há algum erro, o valor retornado, diferente de zero, indica o tipo de erro
+(veja as manpages dos programas; "man fetchmail" seção "exit codes" é
+um bom exemplo). Portanto, ao contrário do que programadores de C ou Perl
+poderiam achar intuitivo (dentro de um "while", ou uma condição em geral),
+um programa que retorna 0 é considerado "verdadeiro" aos olhos do "while".
+
+Assim, podemos fazer:
+
+while w | grep -qs rbp; do
+        sleep 5s
+done
+echo 'rbp acaba de sair do sistema!'
+
+Nesse exemplo, o while checa o retorno da expressão "w | grep -qs
+rbp". Isso retorna "verdadeiro" quando o grep acha "rbp" na saída do comando
+"w". Toda vez que achar, espera 5 segundos e checa de novo. Quando não
+achar, sai do loop e mostra um aviso de que a última sessão do rbp foi
+fechada.
+
+Pra finalizar: se você quiser fazer um loop infinito, pode usar ":"
+(dois pontos) como condição sempre verdadeira:
+
+while : ; do
+        echo 'Emacs rules!'
+done
+
+Isso vai imprimir uma constatação sábia infinitamente, até você usar
+C-c (Ctrl + C). Normalmente, isso é utilizado com alguma condição de
+parada. Mas "if" fica pra outra dica :)
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 9603 assinantes.
+
+********************************************************************
+Linux: Atalhos de teclado em Bash
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel &lt;rbp@sp.conectiva.com.br&gt;
+
+Estou listando alguns "stupid bash tricks" que podem ser úteis ou
+mesmo divertidos :)
+
+Estarei usando a notação do Emacs:
+C-a significa "segure a tecla Ctrl e aperte a tecla a"
+M-a significa "Use a tecla Meta junto com a tecla a", em que a
+tecla Meta pode ser o Alt da esquerda, a tecla de função do windows ao lado
+dela ou o Esc (nesse último caso, não é preciso manter o Esc apertado
+enquanto se aperta o "a", basta apertar o Esc e em seguida o "a"). A tecla
+que responde pela Meta varia com cada configuração de teclado.
+
+Além disso, estou assumindo uma configuração padrão do bash. Há
+configurações alternativas e configurações customizadas podem ser feitas no
+arquivo ~/.inputrc . Para mais informações, man bash .
+
+C-a : Ir para o começo da linha
+C-e : Ir para o final da linha
+M-f : Andar com o cursor uma palavra para a frente
+M-b : Andar com o cursor uma palavra para a trás
+C-w : Apagar do cursor até o começo da palavra
+C-u : Apagar do cursor até o começo da linha
+C-k : Apagar do cursos até o final da linha
+C-y : Re-inserir o último trecho apagado com C-u, C-k ou C-w
+C-d : Apaga o caracter sob o cursor (como o "Delete", no DOS e em algumas
+      configurações de teclado no Linux)
+C-h : Apaga o caracter anterior ao cursor. Era o comportamento padrão da
+      tecla Delete, até não muito tempo atrás.
+C-t : Inverte o caracter sob o cursor e o imediatamente anterior a ele
+      (Para, por exemplo, quando você digitar "celar" ao invés de "clear")
+C-r : Faz busca incremental para trás no histórico de comandos.
+      Durante uma busca incremental, para se executar o comando exibido na
+      linha, basta usar Enter. Para simplesmente deixar a linha pronta para
+      execução ou edição, use Esc. Para cancelar a busca sem utilizar a
+      linha que estiver na tela, use C-g.
+
+
+Você já se sentiu frustrado por ter de digitar
+
+man make-ssh-known-hosts
+
+
+E não poder usar o TAB para completar o nome do comando? Bem, em
+primeiro lugar, o TAB não funciona porque o comando associado a ele
+("complete") é sensível a contexto. Ou seja, se você aperta TAB enquanto
+está digitando a primeira palavra na linha, supõe-se que você esteja
+digitando um comando e a busca por nomes para completar o que você já
+digitou é feita na variável PATH. Se a palavra está mais adiante na linha,
+supõe-se que seja um nome de arquivo e tenta-se completar a palavra com os
+nomes de arquivo no diretório atual. Bem, há alguns comandos que
+possibilitam complementação de palavras independentemente de contexto:
+
+C-/ : Tenta completar assumindo que se trata de um nome de arquivo
+C-~ : Tenta completar assumindo que se trata de um nome de usuário naquela
+      máquina
+C-@ : Tenta completar assumindo que se trata de um nome de máquina listado
+      em /etc/hosts
+C-! : Tenta completar assumindo que se trata de um comando
+
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 8965 assinantes.
+
+Para sair ou assinar a lista Dicas-L, consulte o documento que
+se encontra em http://www.Dicas-l.com.br/FAQ.html.
+
+
+********************************************************************
+Linux: Historico de Comandos
+
+
+O Jorge mantem tambem uma lista de informacoes basicas sobre Linux.
+Maiores informacoes em http://www.pcs.usp.br/~jkinoshi/boletim.html.
+---------------------------------------------------------------------
+Linux: Historico de Comandos
+
+Em sistemas Linux, a shell padrao, `bash', armazena no arquivo
+`.bash_history', os comandos executados. O numero de comandos armazenado
+e determinado pelo valor da variavel de ambiente HISTSIZE:
+
+$ env | grep HISTSIZE
+HISTSIZE=1000
+
+Como podemos ver, o valor da variavel HISTSIZE e 1000, ou seja,
+sao armazenados os ultimos 1000 comandos emitidos, muito mais do
+que um usuario comum precisa se lembrar.
+
+$ wc .bash_history
+1000    1894   10841 .bash_history
+
+Para recuperar um comando que tenha sido emitido recentemente, podemos
+usar o comando `grep':
+
+$ grep slocate .bash_history
+slocate -U ~
+slocate -U ~ -d slocate.db
+slocate -U ~ -o slocate.db
+slocate --database=slocate.db *.tex
+slocate --database=slocate.db tex
+
+Ou ainda
+
+$ history | grep slocate
+
+Tudo depende do que voce acha mais facil digitar.
+
+Basta entao identificar qual comando desejamos repetir e executa-lo.
+---------------------------------------------------------------
+********************************************************************
+Mais dicas de bash
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel [rbp@sp.conectiva.com.br]
+
+Muitas vezes é necessário, em uma linha de comando, repetirem-se
+palavras quase na íntegra, modificando-se somente um ou outro caracter. Por
+exemplo:
+
+# cp ~/.emacs ~/.emacs.bak
+
+Ou, pior,
+
+# cp /mnt/usr/share/emacs/20.7/etc/sex.6 /usr/share/emacs/20.7/etc/sex.6
+
+(para alguém que tenha perdido o arquivo, por exemplo)
+
+Bem, para os preguiçosos, mesmo o primeiro exemplo é demais.
+Então, tentando minimizar ao máximo a quantidade de caracteres
+digitados, podemos usar um pequeno truque de bash:
+
+# cp ~/.emacs{,.bak}
+
+O que isso faz? A palavra que contem as chaves é expandida em duas
+palavras (neste caso, podem ser mais), separadas por espaço: a primeira
+contém "~/.emacs" mais o que está entre chaves, antes da primeira vírgula
+(nada); a segunda contém "~/.emacs" mais o que está depois da vírgula
+(".bak"). O resultado final, expandido pelo bash, seria
+
+# cp ~/.emacs ~/.emacs.bak
+
+Outro exemplo seria:
+
+# cat arq{1,2,3} &gt; arq.final
+
+Ou seja, o equivalente a
+
+# cat arq1 arq2 arq3 &gt; arq.final
+
+Isso funciona também no meio de da palavra, ou mesmo no começo:
+
+# cat /home/{rbp,queiroz,rms,torvalds}/.signature
+# diff {/home/rbp/.,/etc/}bashrc
+
+E, finalmente (e um pouco mais confuso), pode haver chaves dentro de
+chaves:
+
+# less /usr/doc/{emacs-20.7/{NEWS,README},ed-0.2/NEWS,gnupg-1.0.1/{README,COPYING}}
+
+Que seria expandido para:
+
+# less /usr/doc/emacs-20.7/NEWS /usr/doc/emacs-20.7/README /usr/doc/ed-0.2/NEWS /usr/doc/gnupg-1.0.1/README /usr/doc/gnupg-1.0.1/COPYING
+
+---------------------------------------------------------------------
+
+__
+
+********************************************************************
+Mais dicas de Bash
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel <rbp@sp.conectiva.com.br>
+
+Muitas vezes queremos utilizar a saída de um comando como entrada
+para outro, mas o primeiro espera um arquivo. Por exemplo, podemos querer
+fazer um diff da saída de dois comandos. Digamos que temos dois diretórios
+supostamente idênticos (talvez um seja o backup do outro), mas queremos
+checar. Há várias formas de se fazer isso, mas uma seria
+
+        # ls -l /home/rbp > /tmp/arq1
+        # ls -l /home/rbp-bak > /tmp/arq2
+        # diff /tmp/arq1 /tmp/arq2
+        (ou, para quem se lembra de uma dica anterior)
+        # diff /tmp/arq{1,2}
+        # rm /tmp/arq1 /tmp/arq2
+
+Como todo bom usuário de Unix, a preguiça nos impele a usar um
+número mínimo de comandos (ou seja, menos digitação). Existe um modo de se
+criarem "arquivos virtuais" temporários no bash. A expressão
+
+        <(comando)
+
+executa "comando" e fornece um "file descriptor" com sua saída. Em
+termos práticos, é como se um arquivo temporário fosse criado com a saída do
+comando e apagado depois de usado. Assim, o exemplo acima poderia ficar
+como:
+
+        # diff <(ls -l /home/rbp) &lt;(ls -l /home/rbp-bak)
+
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 9338 assinantes.
+
+Para sair ou assinar a lista Dicas-L, consulte o documento que
+se encontra em http://www.Dicas-l.com.br/FAQ.html.
+
+
+********************************************************************
+Pipes em bash
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel <rbp@sp.conectiva.com.br>
+
+As ferramentas de Unix surgiram com o conceito de "seja simples,
+faça bem o que tem a fazer, saiba conversar com outras aplicações". Bem,
+parte dessa última premissa é realizada com o uso de "pipes".
+"pipes" (utilizados com o caracter '|') conectam a saída de uma
+programa à entrada de outro. Ou seja, funcionam como um "tubo" ou "cano"
+mesmo.
+
+Por exemplo: o comando "cat" joga na saída padrão o conteúdo de um
+arquivo. O comando "cut" mostra só uma parte especificada do texto que lhe é
+passado como entrada padrão. Assim, para conseguirmos uma lista de usuários
+do sistema, podemos fazer
+
+[rbp@muppets ~]$ cat /etc/passwd | cut -d : -f 1
+
+O comando "cat /etc/passwd" jogaria na tela todas as linhas do
+arquivo /etc/passwd.
+
+O comando "cut -d : -f 1" divide cada linha da entrada utilizando o
+":" (dois pontos) como separador e pega o primeiro campo (com "-d :" e "-f
+1" respectivamente). Assim, em uma linha do /etc/passwd normal, os campos
+seriam
+
+rbp:x:500:500:Rodrigo Bernardo Pimentel:/home/rbp:/bin/bash
+ 1  2  3   4                       5        6         7
+
+Ou seja, o primeiro campo é o login.
+
+Assim, o pipe usa a saída do primeiro comando para fornecer uma
+entrada para o segundo, e o resultado é o campo de login de cada linha do
+/etc/passwd.
+
+Outro exemplo, envolvendo mais pipes (ou seja, você pode usar
+mais de um pipe de uma vez):
+
+[rbp@muppets ~]$ w | grep '^rbp ' | wc -l
+7
+[rbp@muppets ~]$
+
+O comando "w" lista os usuários conectados na máquina. O comando
+"grep '^rbp '" pega essa lista e mostra só as que começem com "rbp " (para
+não pegarmos substrings como 'rbpsdgf'). Finalmente, o comando "wc -l" conta
+essas linhas. Assim, sei que, no momento, o usuário rbp tem 7 shells abertos
+na máquina (dia fraco... ;) .
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 10234 assinantes.
+
+********************************************************************
+Programação Shell: A variável _$
+---------------------------------------------------------------------
+Colaboração: Aurelio Marinho Jargas [aurelio@conectiva.com.br]
+
+A variável $_ guarda o último parâmetro
+do comando anterior (geralmente um nome de arquivo)
+
+prompt$ ls -l /etc/passwd
+-rw-r--r--   1 root     root         6816 Jul 25 18:05 /etc/passwd
+prompt$ echo $_
+/etc/passwd
+
+Então ao aplicar vários comandos num mesmo arquivo/diretório:
+
+prompt$ mount /mnt/cdrom
+prompt$ umount $_
+
+ou:
+
+prompt$ vi /home/usuario/documentos/pessoais/julho/arquivo.txt
+prompt$ ispell $_
+prompt$ cp $_ /tmp
+prompt$ ls $_/arquivo.txt
+prompt$ echo $_
+
+Nessa última seqüência de comandos o $_ que referenciamos tinha
+os valores:
+
+/home/usuario/documentos/pessoais/julho/arquivo.txt
+/home/usuario/documentos/pessoais/julho/arquivo.txt
+/tmp
+/tmp/arquivo.txt
+
+---------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 9228 assinantes.
+
+Para sair ou assinar a lista Dicas-L, consulte o documento que
+se encontra em http://www.Dicas-l.com.br/FAQ.html.
+
+********************************************************************
+"case" em bash
+---------------------------------------------------------------------
+Colaboração: Rodrigo Bernardo Pimentel <rbp@sp.conectiva.com.br>
+
+Quando se quer testar uma série de condições, pode-se usar "if",
+"elif" e "else", como já veiculado em outra dica. Porém, quando o teste é
+para um mesmo valor de variável, a repetição pode-se tornar inconveniente:
+
+if [ "$REPOSTA" = "sim" ]; then
+        faz_coisas
+
+elif [ "$RESPOSTA" = "nao"]; then
+        exit 0
+
+elif [ "$RESPOSTA" = "depende_do_tempo" ]; then
+        faz_coisas_se_o_tempo_permitir
+
+elif [ "$RESPOSTA" = "depende_do_humor" ]; then
+        faz_coisas_se_o_humor_permitir
+
+  ...
+
+
+E por aí vai. As checagens são necessárias, afinal de contas
+precisamos reagir diferentemente a cada uma das condições. Mas a repetição
+de 'elif [ "$RESPOSTA" = "..."]; then' torna-se cansativa.
+
+Para esse tipo de problema, existe uma construção em bash chamada
+"case" (existe também em outras linguagens como C). Sua estrutura é:
+
+case "$variavel"in
+        primeira_opcao)
+                comando1
+                comando2
+                ...
+                ;;
+
+        segunda_opcao)
+                outro_comando
+                ainda_outro
+                ...
+                ;;
+        ...
+
+        *)
+                ultimo_comando
+
+esac
+
+Isso testa "$variavel" com cada uma das opções. Quando achar uma
+adequada, executa os comandos até ";;" e sai do loop (não tenta outras
+opções mais adiante). O nosso exemplo com "if" acima ficaria:
+
+case "$RESPOSTA" in
+        sim)
+                faz_coisas
+                ;;
+
+        nao)
+                exit 0
+                ;;
+
+        depende_do_tempo)
+                faz_coisas_se_o_tempo_permitir
+                ;;
+
+        depende_do_humor)
+                faz_coisas_se_o_humor_permitir
+                ;;
+
+        *)
+                echo 'NDA!'
+
+esac
+
+Notem que "*" é um "catchall", ou seja, se o valor da variável
+"RESPOSTA" não for "sim", "nao", "depende_do_tempo" ou "depende_do_humor",
+serão executandos os comandos após o "*)" (que não precisa terminar em
+";;").
+
+Normalmente, os scripts de inicialização do sistema (em /etc/init.d ou
+/etc/rc.d/init.d, dependendo da distribuição) necessitam de um parâmetro, um
+dentre "start", "stop", "status", "restart" ou "reload" (às vezes mais). A
+situação ideal para se usar um "case", certo? O pessoal das distribuições
+também acha. Portante, se você quiser exemplos de "case", procure nos
+scripts de inicialização da sua distribuição!
+
+********************************************************************
+chmod 773
+
+Juliano Pillati wrote:
+
+> Simples, tire a permissão de write do usuário!
+> Subject: [ano2001] bash_history
+
+> > Gostaria de saber se há algum jeito de impedir o usuário de deletar ou
+> > modificar com algum editor o .bash_history. Se houver alguma dica para
+> > essa parte de administracao dos logs,
+
+********************************************************************
+
+********************************************************************
+chmod -w .bash_history
+
+ou
+
+chmod 700 .bash_history
+
+> Gostaria de saber se há algum jeito de impedir o usuário de deletar ou
+> modificar com algum editor o .bash_history. Se houver alguma dica para
+> essa parte de administracao dos logs,
+********************************************************************
+> Quando estou no console e aperto a seta para cima, o linux me mostra os
+> ultimos comandos, alguem sabe como faco para apagar da memoria estes
+> comandos???
+
+Não é o Linux que faz isso, mas o bash (interpretador de comandos usado no
+seu Linux). Nas distribuições Red Hat e Conectiva (e acredito que no Mandrake
+e Tech Linux tb) no diretório pessoal de cada usuário (/home/usuário) chamado
+.bash_history que contém exatamente os comandos que vc deu.
+
+Basta apagar o conteúdo do arquivo e pronto. O modo mais fácil de vc fazer
+isso (sem entrar no mérito do perl, awk, sed, reza braba...) é:
+
+$ rm .bash_history
+$ touch bash_history
+
+********************************************************************
+Linux: Historico de Comandos
+
+Colaboracao: Jorge Kinoshita  [jkinoshi@pcs.usp.br]
+
+Para se recuperar um comando antigo pode-se
+usar o  ^R (Control R) dentro do bash.
+Basta digitar ^R e comecar a teclar uma string
+que faca parte do comando que se quer
+recuperar. Exemplo:
+
+Estou no bash, digitei ^R e agora estou digitando 'ca':
+
+(reverse-i-search)`ca': telnet carcara 23
+
+Se o comando que aparece eh o que se procura
+basta teclar enter; e seguindo o exemplo, e
+dado o comando telnet.
+
+Caso contrario, existem duas possibilidades:
+continuar digitando o comando para aprimorar a
+busca ou digitar outro ^R para pegar um comando
+mais antigo ainda dentro do historico
+********************************************************************
+Linux:  Historico de Comandos
+---------------------------------------------------------------------
+Colaboracao:  Ticiano Brandao Benetti [ticiano@consultoria.net]
+
+O Ticiano mandou uma dica interessante sobre como
+manter  o historico de comandos separadamente, um
+para cada janela aberta.  A seguir a mensagem
+enviada:
+
+Por falar em arquivos de history, eu
+tive uma ideia essa semana que acabou ficando
+muito interessante e talvez fosse uma boa mandar
+pra lista.  Eu estava num servidor e com varias
+shell's abertas.  Em uma eu estava dando
+manutencao em disco, em outra mexendo com
+postcript e mais uma com outra atividade
+administrativa.  Todas eram repetitivas, o que
+tornava o uso do history muito frequente e eficaz.
+Entretanto cada shell usava comandos de uma
+natureza e os comandos de uma apareciam no history
+da outra, afinal todas usavam o mesmo arquivo.  No
+meu .profile havia a definicao de ENV para o
+script de inicializacao das shells (bash, korn e
+posix).  Coloquei neste arquivo o seguinte:
+
+HISTFILE=~/.histories/history-$$
+
+Nao esquecendo de criar antes o diretorio:
+
+mkdir ~/.histories
+
+E colocando na minha crontab para todo dia fazer:
+
+find ~/.histories -atime 7
+
+para matar os arquivos "histories" com mais de uma
+semana de idade.
+
+Assim, cada shell ficou com um history
+independente, cujo nome do arquivo continha o PID
+da shell.  Isso facilitou em muito o meu trabalho
+pois em cada history apareciam apenas os comandos
+pertinentes.
+********************************************************************
+16-8-01 - Boletim ViaLinuxis em sintonia com o Fórum
+~/.bashrc
+
+Editorial
+Aqui vai o meu ~/.bashrc . Não requer muitos comentários porque grande parte já está comentada em boletins anteriores.
+--------------------------------------------------------------------------------
+
+# .bashrc
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+# User specific aliases and functions
+export PATH=$PATH
+PATH="$PATH:./"
+export LS_COLORS="di=47"
+alias rm='rm -i '
+alias cp='cp -i -p '
+alias mcopy='mcopy -m '
+alias ls='ls -F '
+alias d='ls -ld */'
+alias xz='tar -zxvf ' # retira do tar
+alias tz='tar -ztvf ' # ve o que estah no .tar.gz
+alias cz='tar -zcvf ' # cz  t.tar.gz teste
+alias ssh='xhost carcara; ssh'  # para a minha maquina
+#DISPLAY=minha.maquina:0.0; export DISPLAY # para o carcara
+# alias cz='tar zcvf ' # ex: cz x.tar.gz x/ comprime e gzipeia.
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+alias xdvi='xdvi -s 5 -geometry 1244x556+-134+0 '
+# Source global definitions
+#if (test -z $DISPLAY); then
+#       startx
+#fi
+#xhost carcara
+umask 0
+
+********************************************************************
+> Estou com alguns problemas estranhos aqui, derrepente sem mais nem menos o
+> servidor passou a apresentar uma mensagens estranhas, tipo:
+>
+> Segmentation Fault
+> bash: xmalloc: cannot allocate 2664 bytes (0 bytes allocated)
+
+O código do bash usa esta função xmalloc que termina o bash se por acaso
+faltar memória, note que ele não consegue alocar um bloco de pouco mais de
+2KB! execute free neste momento e confirme que você está com toda a memória
+utilizada: compre mais memória ou crie mais área de swap: man mkswap.
+
+********************************************************************
+
+	De: 	Piter Punk <piterpk@terra.com.br>
+Para: 	"Acsys - Depto. de Instalação" <acsyscps@terra.com.br>
+Cc: 	jbalves@tvclube.com.br, LinuxBR ListaLinux <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) RES: (linux-br) script no logon
+Data: 	20 Jun 2002 11:40:29 -0300
+Acsys - Depto. de Instalação wrote:
+eu quero que qdo o usuario efetue seu login rode un script para setar
+variaveis para acesso a um sistema..
+
+como poço fazer?
+.bash_profile do usuário
+/etc/profile do sistema
+
+                                        Falous,
+
+                                                        Piter PUNK
+
+********************************************************************
+De: 	Patrich Pizzolo <patrich@costao.com.br>
+Para: 	Acsys - Depto. de Instalação <acsyscps@terra.com.br>
+Cc: 	Linux <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) RES: (linux-br) script no logon
+Data: 	20 Jun 2002 13:38:59 -0300	
+Em Qui, 2002-06-20 às 10:33, Acsys - Depto. de Instalação escreveu:
+> eu quero que qdo o usuario efetue seu login rode un script para setar
+> variaveis para acesso a um sistema..
+> 
+> como poço fazer?
+>
+Caro amigo,
+
+Como já haviam lhe falado anteriormente vc tem duas opções para setar
+variáveis de sistemas e executar comandos ao efetuar logon no linux.
+A primeira opção para efetuar comandos quando ""qualquer"" usuário entra
+no sistema é no /etc/bashrc
+A segunda opção para efetuar comandos quando o "joaozinho" entra no
+sistema é no /home/joazinho/.bashrc
+A primeira opção para definir variáveis quando ""qualquer"" usuário
+entra no sistema é no /etc/profile
+A segunda opção para definir variáveis quando o "joaozinho" entra no
+sistema é no /home/joazinho/.bash_profile
+
+E mais, no diretório /etc/skell/ caso sejam scripts padrão que devam ser
+executados pelos novos usuários que serão cadastrados vc pode coloca -
+los dentro deste diretório pois o mesmo é o "esqueleto" dos homes para
+usuários, portanto se vc colocar qualquer coisa dentro deste diretório
+ele será copiado apenas para todos os novos usuários, por exemplo se vc
+alterar o /etc/skell/.bashrc deste diretório e copiar o arquivo logo.jpg
+quando entrar em sua empresa o simão e vc cadastrá - lo no linux ele
+terá em seu home o .bashrc alterado e o arquivo logo.jpg e tudo o mais
+que estiver neste diretório.
+
+
+> Acsys Consultoria e Sistemas LTDA. Fernando Novaes - Administração de Redes
+> E-mail: fernando@acsys.com.br Site: www.acsys.com.br
+
+
+********************************************************************
+	De: 	Jeimerson C Chaves <jeimerson@voetur.com.br>
+Para: 	linux-br@bazar.conectiva.com.br
+Assunto: 	Re: (linux-br) Alias de comando
+Data: 	15 Oct 2002 11:34:20 -0300	
+At 09:51 15/10/2002 -0300, escreveu:
+Pessoal como eu faço pra criar um alias de comando definitivo.
+Em vez de digitar o comando inteiro toda vez, eu crio uma alias pra
+Amigo,
+
+        Dentro do /etc/ existe um arquivo chamado bashrc
+inclua a seguinte linha.
+
+        Ex: alias rm="rm -f"
+
+        ou seja sempre que vc digitr rm o arquivo sera removido sem pedir confirmacao.
+
+para fazer valer as mudancas basta digitar bash
+
+TE+
+********************************************************************
+	De: 	Thiago Madeira de Lima <junglelst@webforce.com.br>
+Para: 	'NEO' <neo@pa-online.com.br>, linux-br@bazar.conectiva.com.br
+Assunto: 	RE: (linux-br) Alias de comando
+Data: 	15 Oct 2002 11:40:35 -0300	
+
+        NEO,
+
+        Coloque o alias no seu .bash_profile no seu home. Se deslogue e
+logue denovo. 
+
+        echo "alias ls='ls -laF' " >> ~/.bash_profile 
+
+thiago madeira de lima.
+
+
+
+-----Original Message-----
+Pessoal como eu faço pra criar um alias de comando definitivo. Em vez de
+digitar o comando inteiro toda vez, eu crio uma alias pra "encurtar" ele
+mas nao consigo deixa-lo definitivo. Tenho que fazer dentro do bash?
+********************************************************************
+	De: 	Arnaldo Carvalho de Melo <acme@conectiva.com.br>
+Para: 	Rafael Diniz <rafael2k@terra.com.br>
+Cc: 	linux-br <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) "desligar" log de comandos para o .bash_history
+Data: 	16 Nov 2002 09:07:46 -0200	
+Em Sat, Nov 16, 2002 at 08:52:18AM +0000, Rafael Diniz escreveu:
+> Não estou conseguindo desligar no bash o command history.
+> Tentei dar 
+> shopt -u cmdhist
+> Mas num deu.
+> Alguém sabe fazer isso?
+
+As Organizações ACME de Pesquisa em Man Page informam:
+
+       HISTFILE
+              The name of the file in which command history is saved (see HIS-
+              TORY below).  The default value is ~/.bash_history.   If  unset,
+              the  command  history  is  not  saved  when an interactive shell
+              exits.
+
+Vamos testar...
+
+Deixe ele como:
+
+HISTFILE=
+
+em seu .bash_profile
+
+e teste.
+
+- Arnaldo
+********************************************************************
+	De: 	dicas-l-owner@unicamp.br
+Assunto: 	[Dicas-L] Correção Automática de Comandos em Bash
+Data: 	30 Oct 2002 00:13:36 -0300	
+--------------------------------------------------------------------
+Endereço: http://www.Dicas-l.com.br/dicas-l/20021030.shtml
+--------------------------------------------------------------------
+                            Read in English
+                 Uma Maneira Divertida de Aprender Inglês
+             http://novateceditora.com.br/livros/readinenglish/
+--------------------------------------------------------------------
+  Correção Automática de Comandos em Bash
+  =======================================
+
+Colaboração: roni@alfanetworks.com.br
+
+Se voce errar um comando, utilizando as teclas Ctrl-t após o comando,
+o Bash tenta reescrever o comando corretamente. Por exemplo:
+
+Voce quer criar um diretorio e digita:
+
+# mkdri
+
+O comando correto seria mkdir e nao mkdri. Em vez de utilizar o backspace
+e corrigir o comando, simplesmente tecle Ctrl-t e o Bash irá trocar
+as duas ultimas letras do comando.  Na realidade essa funcao do Bash
+foi desenvolvida com base em um estudo que observou que na maioria dos
+comandos digitados errados, o erro é a troca das ultimas duas letras.
+
+
+
+********************************************************************
+	De: 	dicas-l-owner@unicamp.br
+Assunto: 	[Dicas-L] Correção automática do **cd** na //bash//:
+Data: 	22 Nov 2002 00:16:16 -0200	
+--------------------------------------------------------------------
+Endereço: http://www.Dicas-l.com.br/dicas-l/20021122.shtml
+--------------------------------------------------------------------
+                            Read in English
+                 Uma Maneira Divertida de Aprender Inglês
+             http://novateceditora.com.br/livros/readinenglish/
+--------------------------------------------------------------------
+- Correção automática do cd na bash:
+
+
+
+Colaboração: Felipe K <stdfk@terra.com.br>
+
+A bash também tem uma outra opção muito interessante, cdspell.
+
+Para habilitar a opção, basta usar o shopt: shopt -s cdspell com
+a shell em modo interativo. Com esta opção, qualquer erro de digitação,
+como troca de caracteres, falta de caractere ou caractere adicional,
+será arrumado pela shell e o comando vai ser executado normalmente.
+
+          /$ cd homr
+          bash: cd: homr: No such file or directory
+          /$ shopt -s cdspell
+          /$ cd homr
+          home
+          /home$ cd ../hom
+          ../home
+          /home$
+
+
+Segundo a man page (man bash)
+
+         shopt [-pqsu] [-o] [optname ...]
+                Toggle the values of variables controlling optional shell behavior.  With no options,
+                or  with  the -p option, a list of all settable options is displayed, with an indica­
+                tion of whether or not each is set.  The -p option causes output to be displayed in a
+                form that may be reused as input.  Other options have the following meanings:
+                -s     Enable (set) each optname.
+                -u     Disable (unset) each optname.
+                -q     Suppresses normal output (quiet mode); the return status indicates whether the
+                       optname is set or unset.  If multiple optname arguments are given with -q, the
+                       return status is zero if all optnames are enabled; non-zero otherwise.
+                -o     Restricts  the  values of optname to be those defined for the -o option to the
+                       set builtin.
+
+
+e ainda
+
+                cdspell If set, minor errors in the spelling of a directory component in a cd command
+                        will be corrected.  The errors checked for are transposed characters, a miss­
+                        ing character, and one character too many.  If a  correction  is  found,  the
+                        corrected  file  name  is  printed, and the command proceeds.  This option is
+                        only used by interactive shells.
+
+
+********************************************************************
+De: 	Cláudio Max <cldmxm@yahoo.com.br>
+Para: 	linux <linux-br@bazar.conectiva.com.br>
+Assunto: 	(linux-br) dica: tab já mostra (sem apitar) as alternativas
+Data: 	03 Nov 2002 13:22:15 -0200	
+Para os neuróticos de plantão, para que o tab, no bash, não apite e
+já mostre as alternativas (ambíguos) basta colocar em /etc/inputrc
+ou ~/.inputrc a linha
+
+set show-all-if-ambiguous on
+
+e reabrir a tela de terminal
+
+Abraço
+Cláudio
+********************************************************************
+
+	De: 	Thiago Macieira <thiagom@mail.com>
+Para: 	Anderson Vieira de Souza <listasds@nextwave.com.br>, linux-br <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) Mudar diretório através de script bash...
+Data: 	15 Dec 2002 20:17:15 +0100	
+Anderson Vieira de Souza wrote:
+>Alô Linuxers,
+>
+>      Estou tendo um pequeno problema para mudar de diretório através
+>de um script bash, pois ao termino do script eu caio de volta no
+>diretório de onde o script foi executado. Eu já vi a solução pra isso
+>aqui mesmo na lista, mas procurei no histórico e não encontrei.
+>
+>Certo de sua colaboração, desde já agradeço.
+
+Execute o script no mesmo processo (shell), ao invés de chamar um processo 
+novo.
+
+Ou seja, ao invés de executar:
+        meuscript.sh
+execute:
+        source meuscript.sh
+
+-- 
+********************************************************************
+	De: 	Thiago Macieira <thiagom@mail.com>
+Para: 	Piter Punk <piterpk@terra.com.br>, Edson Ahlert <edsonahlert@certel.com.br>
+Cc: 	linux-br <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) Bash preencher comando
+Data: 	07 Feb 2003 18:14:17 +0100	
+Piter Punk wrote:
+>Edson Ahlert wrote:
+>> Olá!!!
+>>
+>> Há alguma forma de eu escrever o início de uma linha de comando no prompt
+>> do linux e este procurar o último comando usado mais próximo (tipo dos).
+>
+>ctrl+R
+>comece a digitar o comando que você quer. Ele irá mostrar o último
+>comando que você usou contendo a string que digitou.
+>
+>Se apertar ctrl+R de novo, ele irá para o penúltimo comando
+
+Se você tiver certeza de que o início do comando que digitou corresponde ao 
+comando que o shell vai encontrar, você pode simplesmente usar ! no começo do 
+comando.
+
+Por exemplo, suponha que você tenha rodado o emacs e que queira rodá-lo de 
+novo (e que não tenha rodado mais nada que comece com e), você digitaria:
+
+$ !e
+
+Ou para encontrar com relação a qualquer parte do comando, não necessariamente 
+o começo:
+
+$ !?parte
+********************************************************************
+De: 	Marco Aurelio Rovari <marco.rovari@intersix.com.br>
+Para: 	'Edson Ahlert' <edsonahlert@certel.com.br>, 'linux-br' <linux-br@bazar.conectiva.com.br>
+Assunto: 	RE: (linux-br) Bash preencher comando
+Data: 	07 Feb 2003 11:55:12 -0200	
+Tente colocar o ! em seguida pelo menos as duas primeiras letras do comando,
+exemplo: se vc tiver dado um vi em algum path...vi
+/home/usuario/teste/teste1/arquivo... e por acaso vc quer executar novamante
+esse comando sem precisar ficar procurarando na "seta para cima/baixo"
+etc...
+
+# !vi  ENTER
+
+assim ele vai repetir o ultimo comando vi que foi dado...
+
+********************************************************************
+	De: 	Eckhardt, Rodolpho H. O. <reckhardt@mandic.com.br>
+Para: 	cldmxm@yahoo.com.br
+Cc: 	linux-br@bazar.conectiva.com.br
+Assunto: 	Re: (linux-br) /etc/profile x /etc/bash.bashrc x ~/.bashrc
+Data: 	20 Feb 2003 11:13:32 -0300	
+It´s believed that the following words were said by Cláudio Max:
+> /etc/profile
+> /etc/bash.bashrc
+> ~/.bashrc
+Ao realizar o login o bash lê os arquivos ~/.bashrc e /etc/bash.bashrc (em algumas dists
+/etc/bashrc), que configuram o funcionamento interno do bash (essa é a intenção
+original), a diferença entre eles é que o ~/.bashrc é configurável pelo usuário, para
+realizar modificações pessoais. Já o /etc/... é global, o mesmo para todos os usuários,
+deve incluir as configurações padrão para os usuários. É feito primeiro a leitura do
+arquivo global, depois a do usuário.
+O /etc/profile deve configurar globalmente variaveis como PATH e outras que vc quiser
+exportar. Originalmente não deveria configurar o bash ou outros programas assim. Existe
+também o ~/.bash_profile que é a versão pessoal do /etc/profile, a regra de leitura é a
+mesma do bashrc.
+
+> Outra "cosita": qual é o arquivo que é executado ao ser dado
+> o logoff? Eu gostaria de colocar um "clear" ali para limpar a
+> tela ao sair da sessão.
+
+mv /etc/issue /etc/issue.old
+echo clear > /etc/issue
+cat /etc/issue.old >> /etc/issue
+
+> Cláudio
+
+Rodolpho
+********************************************************************
+	De: 	Eduardo Rocha <erocha@actha.com.br>
+Para: 	Cláudio Max <cldmxm@yahoo.com.br>, linux <linux-br@bazar.conectiva.com.br>
+Assunto: 	Re: (linux-br) /etc/profile x /etc/bash.bashrc x ~/.bashrc
+Data: 	20 Feb 2003 19:37:47 -0300	
+/etc/profile é executado em um shell login, ou seja um shell que é iniciado após um login ou quando vc executa o 
+bash com o parametro --login.
+/etc/bash.bashrc não existe (não que eu saiba)  mas exite /etc/bashrc, que sempre é executado quando o bash 
+é carregado.
+~/.bashrc é bashrc do usuario corrente.
+
+Vide seção INVOCATION do manual do bash.
+
+Eduardo Rocha Rodrigues
+
+> Algum iluminado poderia me dizer qual diferença entre
+>
+> /etc/profile
+> /etc/bash.bashrc
+> ~/.bashrc
+
+********************************************************************
+	De: 	Ricardo Guedes <baby@babylinux.dyndns.org>
+Para: 	Marco Ant¶nio Brugiolo Gonþalves <Marco@dees.ufmg.br>, linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br) teste condicional
+Data: 	10 Jun 2003 22:16:59 -0400
+USUARIO=`whoami`;
+if [ $USUARIO == "root" ]; then
+  echo "Logado com: $USUARIO";
+fi
+
+Dúvidas:
+1o. man bash (Tem tudo lá)
+2o. Olhe no FAQ
+3o. Olhe no Google (bash if condition) também em 3 minutinhos:
+O quarto resultado esclarecia a tua dúvida (Muita coisa mesmo...)
+
+Ricardo Guedes
+
+********************************************************************
+Date: Tue, 16 Dec 2003 21:35:12 -0200
+From: Massahide <massahide@ig.com.br>
+Subject: Re: (linux-br)Comandos nao funcionan !!!
+To: linux-br@bazar2.conectiva.com.br
+Message-ID: <20031216213512.4655c159.massahide@ig.com.br>
+Content-Type: text/plain; charset="iso-8859-1"
+
+        Ele não deve estar configurando corretamente as variáveis de
+ambiente (já verificou isto??), especialmente a variável PATH que
+indica os diretórios que estão os executáveis. Tente executar o
+script .bash_profile ("/bin/sh .bash_profile") e verifique novamente
+o estado!!! (caso não exista execute o script /etc/profile, deve
+funcionar)
+
+Em Ter, 16 de dezembro de 2003 às 10:18 BRST
+"IBBNET" <ibbnet@terra.com.br> escreveu:
+
+> Estou com um pequeno problema desde a ultima sexta feira aqui em minha
+> empresa, tenho um servidor RedHat 9.0 tudo funcionando perfeitamente,
+> só que agora quando eu me conecto via SSH não consigo executar comando
+> nenhum, mesmo estando como root, tipo assim:
+> 
+> Eu abro um ssh na maquina remotamente, se eu precisar executar algum
+> comando tipo: route, modprobe etc..e tal, ele não executa e dá uma
+> mensagem   #bash: route: command not found
+> Mas se eu executar no proprio servidor, ele executa normalmente.
+
+********************************************************************
+	De: 	Andre Taurines
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br)truque bash
+Data: 	Fri, 27 Feb 2004 22:24:22 -0300	
+Buenas, depois de enviar o mail pra lista
+fui verificar o "man history" e descobri
+que existe toda uma sintaxe por tras desse comando...
+
+Por exemplo, na sequencia de comandos
+
+> cp fig_1.jpg fig_2.jpg
+> gimp !^
+
+o ultimo comando serah entendido como "gimp fig_1.jpg"; se
+tivesse colocado "gimp !$" seria entendido como
+"gimp fig_2.jpg". Para complicar mais, em
+
+> cat arq_a.txt arq_b.txt arq_c.txt > arq_total.txt
+> emacs !!:2
+
+o ultimo comando seria equivalente a "emacs arq_2.txt";
+o !! se refere a "ultimo comando no historico" e o 2
+a posicao da palavra que se quer reproduzir (o comando
+tem posicao 0 por definicao).
+
+Existem comandos mais elaborados (ateh scripts inteiros
+com a sintaxe do history...),
+mas acho que o !^ e o !$ sao os de mais utilidade mesmo. 
+Fica a dica.
+
+Valeu, Andre.
+
+
+
+********************************************************************
+
+	De: 	Carlos <h4sh@globo.com>
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br)Qual comando que equivale ao errorlevel do DOS.
+Data: 	Thu, 18 Mar 2004 18:30:25 -0300	
+
+O comando echo $? retorna isso.
+Um valor = 0 significa que o comando anterior foi executado com sucesso, 
+qualquer outro valor significa erro.
+
+
+
+On Thursday 18 March 2004 16:15, Davinio Ross wrote:
+> Como posso testar se um comando do linux retornou um erro, semelhante ao
+> errorlevel do DOS.
+>
+> Tenho um script com o comando mount /mnt/cdrom e gostaria de tomar uma
+> atitude tipo enviar um e-mail se o disco não estiver na unidade.
+
+********************************************************************
+	De: 	Tiago Cruz <tiagocruz@linuxdicas.com.br>
+Para: 	Jorge Godoy <godoy@metalab.unc.edu>
+Cc: 	Linux-BR <linux-br@bazar2.conectiva.com.br>
+Assunto: 	Re: (linux-br)Criar atalho no desktop de todo mundo (SOLUCAO)
+Data: 	Tue, 23 Mar 2004 11:40:57 -0300	
+Em Ter, 2004-03-23 às 11:20, Jorge Godoy escreveu:
+> Sua receita para a lista ficaria mais completa com o script por inteiro, 
+> inclusive com a maneira usada para obter os usuários. ;-)
+
+Então Godoy,
+
+Usei o seu script:
+
+===================
+# by Gogoy
+for i in `ls /home`
+do
+   cp /etc/skel/Desktop/* $i/Desktop/
+done
+===================
+
+Apenas alterei a linha do 'cp' ficando assim:
+
+===================
+# by Gogoy
+# Tiago
+for i in `ls /home`
+do
+   cp /etc/skel/Desktop/* /home/$i/Desktop/
+done
+===================
+
+"Só sei que foi assim", heheheh
+
+E criei manualmente o ~/Desktop de quem ainda não tinha...
+
+-- 
+Abraços,
+ 
+Tiago Cruz
+Org. King de Contab. S/C Ltda.
+Linux User # 282636
+http://www.linuxrapido.linuxdicas.com.br
+Mandrake Linux i18n Team
+********************************************************************
+	De: 	Jorge Godoy <godoy@metalab.unc.edu>
+Para: 	Tiago Cruz <tiagocruz@linuxdicas.com.br>
+Cc: 	Linux-BR <linux-br@bazar2.conectiva.com.br>
+Assunto: 	Re: (linux-br)Criar atalho no desktop de todo mundo (SOLUCAO)
+Data: 	Tue, 23 Mar 2004 11:39:39 -0300	
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+On Tuesday 23 March 2004 11:40, Tiago Cruz wrote:
+
+> Apenas alterei a linha do 'cp' ficando assim:
+>
+> ===================
+> # by Gogoy
+> # Tiago
+> for i in `ls /home`
+> do
+>    cp /etc/skel/Desktop/* /home/$i/Desktop/
+> done
+> ===================
+>
+> "Só sei que foi assim", heheheh
+>
+> E criei manualmente o ~/Desktop de quem ainda não tinha...
+
+Então, para automatizar mais ainda e criar o ~/Desktop, você poderia fazer:
+
+================
+#!/bin/bash
+for i in `ls /home`
+do
+        mkdir -p /home/$i/Desktop
+        cp /etc/skel/Desktop/* /home/$i/Desktop
+done
+================
+
+O segredo é o '-p':
+
+
+[godoy@strongwill ~/desenvolvimento/Java]$ mkdir ~/Desktop
+mkdir: não é possível criar o diretório `/home/godoy/Desktop': Arquivo existe
+[godoy@strongwill ~/desenvolvimento/Java]$ mkdir ~/Desktop -p
+[godoy@strongwill ~/desenvolvimento/Java]$
+
+
+Sds,
+- -- 
+Godoy.     <godoy@metalab.unc.edu>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+********************************************************************
+	De: 	Anderson.M. O <andersonmsp@click21.com.br>
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re[2]: (linux-br)Criar atalho no desktop de todo mundo (=?ISO-8859-1?Q?Solu=E7=E3o?=)
+Data: 	24 Mar 2004 4:25:28 -0300	
+
+
+
+
+=================
+>De:Jorge Godoy <godoy@metalab.unc.edu>
+>Para:Tiago Cruz <tiagocruz@linuxdicas.com.br>
+>Assunto:Re: (linux-br)Criar atalho no desktop de todo mundo    (Solução)
+>
+>-----BEGIN PGP SIGNED MESSAGE-----
+>Hash: SHA1
+>
+>On Monday 22 March 2004 16:15, Tiago Cruz wrote:
+>> Só precisei alterar aqui:
+>>
+>>  cp /etc/skel/Desktop/* /home/$i/Desktop/
+>
+>Isso porquê você não incluiu o "/home/" na hora
+>de obter os dados de usuários. 
+>Se tivesse incluído, nem isso seria necessário.
+>
+>Sua receita para a lista ficaria mais completa
+>com o script por inteiro, 
+>inclusive com a maneira usada para obter os
+>usuários. ;-)
+
+Olá todos
+Bom cheguei a realizar esses teste dessa forma, so consegui fazendo da seguinte forma..
+Copiei o diretorio Desktop meu que tem bastante icones para /etc/skel porque ele alegava que não existia.
+O segundo passo foi exucutar as linhas citado acima mesmo assim não deu certo.
+Solução.
+Exucutei essa linha de comando.
+cp -r /etc/skel/Desktop /home/$i/Desktop/
+Criei um usuario novo para teste e verifiquei que dentro do home/Desktop estão os icones que eu tenho.
+Funcionou beleza.
+Ate mais
+Anderson
+
+********************************************************************
+
+	De: 	Anderson Lizardo <andersonlizardo@yahoo.com.br>
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br)Beep do bash sumiu
+Data: 	Mon, 19 Apr 2004 17:27:40 -0400	
+On Monday 19 April 2004 12:40, Wendell Almeida Silva wrote:
+> Salve a todos.
+>
+> Após compilar o kernel 2.6.5 o beep do bash parou de funcionar. Todo o
+>  sistema estah funcionando bem (som, video, rede, etc).
+
+Verifique se existe o arquivo /etc/inputrc e se lá tem a seguinte linha:
+
+set bell-style none
+
+(no lugar de "none" pode haver "visible" também)
+
+Caso ela exista, comente-a colocando um "#" no início da linha. Não se esqueça 
+de dar um logout e logar novamente para as modificações terem efeito.
+
+-- 
+Anderson Lizardo
+********************************************************************
+	De: 	Anderson Lizardo <andersonlizardo@yahoo.com.br>
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br)Bash_History e LOGs
+Data: 	Mon, 19 Apr 2004 17:30:15 -0400	
+On Monday 19 April 2004 13:45, Igor Hercowitz wrote:
+> Onde ficam armazenados os comandos dados no console/terminal antes de serem
+> gravados no .bash_history do usuario?
+>
+> Ficam na memoria???
+
+Creio que sim.
+
+> tem como acessar???
+
+Sim, digite "history".
+
+Mais informações: help history
+
+-- 
+Anderson Lizardo
+********************************************************************
+	De: 	Thiago Macieira <thiago@macieira.info>
+Para: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br) Atualização Iptables
+Data: 	Wed, 20 Oct 2004 22:31:43 -0300	
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Rodrigo Tavares wrote:
+>[root@faria root]# iptables
+>bash: /usr/sbin/iptables: Arquivo ou diretório não
+>encontrado
+>
+>com a atualziacao agora o iptables esta no /sbin
+
+Solução 1:
+reinicie o seu bash
+
+Solução 2:
+rode "hash -r"
+
+- -- 
+  Thiago Macieira  -  Registered Linux user #65028
+********************************************************************
+	De: 	Dicas-L-Owner@unicamp.br
+Assunto: 	[Dicas-L] Bash: Histórico de Comandos
+Data: 	Wed, 16 Feb 2005 03:41:22 -0300	
+
+
+  Bash: Histórico de Comandos
+  ===========================
+
+
+Para manter um histórico maior dos comandos emitidos usando a shell Bash, edite
+o arquivo ~/.bashrc e inclua as seguintes linhas:
+
+
+  export HISTSIZE=1000
+  export HISTFILESIZE=1000
+
+
+Desta forma armazenamos 1000 comandos no arquivo .bash_history. A variável
+HISTFILESIZE limita o número de linhas do arquivo .bash_history.
+
+Para otimizar o histórico, podemos também especificar que comandos duplicados não
+sejam armazenados. Por exemplo, quando digitamos repetidamente ls para ver o
+conteúdo de um diretório, criamos várias entradas no arquivo de histórico, o que
+não é necessário. Isto se consegue com a especificação, também no arquivo .bashrc,
+da variável HISTCONTROL:
+
+
+  export HISTCONTROL=ignoredups
+
+--------------------------------------------------------------------
+Colabore com a Dicas-L. Publique seu comentário sobre esta mensagem
+em http://www.Dicas-l.com.br/dicas-l/20050216.php
+--------------------------------------------------------------------
+As mensagens da lista Dicas-L são veiculadas diariamente
+para 26566 assinantes.
+
+       Todas as mensagens da Dicas-L ficam armazenadas em 
+               http://www.Dicas-l.com.br/dicas-l/
+
+A redistribuição desta e outras mensagens da lista Dicas-L pode
+ser feita livremente segundo a licença Creative Commons
+http://creativecommons.org/licenses/by-nc-sa/2.0/br/deed.pt
+--------------------------------------------------------------------
+********************************************************************
+	De: 	hamacker <sirhamacker@vidy.com.br>
+Para: 	Fabiano Carlos Heringer <fabianoheringer@veloxmail.com.br>
+Cc: 	linux-br@bazar2.conectiva.com.br
+Assunto: 	Re: (linux-br)Restringir usuario no bash ao seu $home
+Data: 	Fri, 20 May 2005 18:08:28 -0300	
+Fabiano Carlos Heringer wrote:
+> Galera, é possivel impedir que o usario normal desca até o diretorio 
+> raiz ( / ) utilizando o bash? gostaria que fosse +- estilo ftp...onde 
+> ele nao poderia sair do seu $HOME ...mesmo ele digitando cd / ...pra 
+> descer até o raiz...ou seja, o diretorio raiz dele passaria a ser o seu 
+> proprio home
+> 
+> é possivel?
+> 
+Usa chroot no .bash_profile.
+Mas antes crie um arvore /bin no HOME dele e copie os comandos que tú 
+desejas que ele possa usar.
+
+inte+
+********************************************************************
+        De:     Thiago Macieira <thiago@macieira.info>
+Para:   linux-br@bazar2.conectiva.com.br
+Assunto:        Re: (linux-br)Restringir usuario no bash ao seu $home
+Data:   Fri, 20 May 2005 21:00:38 -0300
+Fabiano Carlos Heringer wrote:
+>Galera, é possivel impedir que o usario normal desca até o diretorio
+> raiz ( / ) utilizando o bash? gostaria que fosse +- estilo ftp...onde
+> ele nao poderia sair do seu $HOME ...mesmo ele digitando cd / ...pra
+> descer até o raiz...ou seja, o diretorio raiz dele passaria a ser o seu
+> proprio home
+>
+>é possivel?
+
+Sim. Leia:
+
+man bash
+/RESTRICTED SHELL
+
+--
+  Thiago Macieira  -  thiago (AT) macieira (DOT) info
+    PGP/GPG: 0x6EF45358; fingerprint:
+    E067 918B B660 DBD1 105C  966C 33F5 F005 6EF4 5358
+
+5. Swa he géanhwearf tó timbran, and hwonne he cóm, lá! Unix cwæð "Hello,
+World". ?fre ?ghwilc wæs glæd and seo woruld wæs fréo.
+
+********************************************************************
+	De: 	André Geraldo Vieira <andregerald@terra.com.br>
+Para: 	linux-br@bazar2.conectiva.com.br, dr.beco <dr.beco@gmail.com>
+Assunto: 	RE: (linux-br).bash_history
+Data: 	Tue, 7 Jun 2005 09:02:44 -0300	
+2005/6/3, Dr.Beco <dr.beco@gmail.com>:
+> Oi pessoal,
+> Sabem o arquivo ~/.bash_history que armazena os comandos que a gente digita...
+> 
+> Como eu faço para aumentar o limite de tamanho dele de 1.000 linhas para, por
+> exemplo, 10.000 ?
+
+
+Olá, desculpa a demora, ando meio enrolado com a escola...
+Acho que já deve ter resolvido seu problema mas mesmo assim ai vai.
+Acrescente no seu ~/.bash_profile 
+
+HISTCONTROL=ignoredups 
+#Variável usada para ignorar comando duplicados.
+HISTSIZE=1000
+#Variável que controla o número de comandos no histórico.
+HISTFILESIZE=1000 
+#Variável que controla o número de comandos máximo que será gravado no .bash_history
+
+Qualquer duvida...
+http://www.dicas-l.com.br/dicas-l/20000801.shtml
+
+Até mais...
+
+Por que GNU/Linux?
+
+"Somente pelo Prazer de ser
+LIVRE..."
+
+André Geraldo Vieira
+Brasília  DF
+Usuário GNU/Linux Nº #335012
+(Linux Counter,
+http://counter.li.org.)
+********************************************************************

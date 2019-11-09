@@ -1,0 +1,1276 @@
+#!/bin/bash
+
+data=$(echo $*)
+LNXPDV=/Zanthus/Zeus/pdvJava
+path=/Zanthus/Zeus/path_comum
+BINCONV=lnx_conv_CJ
+LCONV=./lnx_conv_CJ
+NECF=$(pwd |cut -d "." -f "2")
+
+
+#Date
+	if [ -z $data ]
+			then
+		echo -e "O comando mv_conv deve conter uma data como parametro no formato AAAAMMDD.\nPor exemplo: mv_conv $(date "+%Y%m%d")"
+		read -t 5
+			else
+	if [ $data -lt 1 ]
+			then
+		echo "Digite um numero maior que 0 (Zero)"
+		read -t 5
+			else
+#Date cont
+
+##Inicio lnxconv
+if (ls $LNXPDV | grep lnx_conv_CJ)
+	then
+ln -sf $LNXPDV/lnx_conv_CJ /usr/bin/lnx_conv_CJ
+		else
+tar $path/VerAtu.tar.gz -C $LNXPDV
+
+if (ls $LNXPDV | grep lnx_conv_CJ)
+	then
+ln -sf $LNXPDV/lnx_conv_CJ /usr/bin/lnx_conv_CJ
+		else
+	clear
+fi
+fi
+##Fim lnxconv
+
+##Inicio MV
+if [ -d $path/MV ]
+		then
+	mkdir -p $path/MV/Vendas$data
+		else
+	echo "A pasta $path/MV nao existe"
+	read -t 5
+#fi
+##Fim MV
+
+##Conversao
+if (ls | grep $data.001)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.001" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.002)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.002" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.003)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.003" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.004)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.004" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.005)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.005" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.006)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.006" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.007)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.007" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.008)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.008" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.009)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.009" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.010)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.010" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.011)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.011" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.012)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.012" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.013)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.013" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.014)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.014" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.015)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.015" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.016)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.016" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.017)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.017" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.018)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.018" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.019)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.019" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.020)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.020" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.021)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.021" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.022)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.022" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.023)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.023" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.024)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.024" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+
+##Conversao
+if (ls | grep $data.025)
+		then
+	cd $data.$NECF
+if (ls /usr/bin | grep $BINCONV)
+	then
+$BINCONV -m
+		else
+
+if (ls $path/MV | grep $BINCONV)
+	then
+$path/MV/./$BINCONV -m
+		else
+	echo "Nao existe $BINCONV"
+echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/lnxconv_info >> /dev/null
+	echo "O sistema deve conter o aplicativo $BINCONV para fazer as conversoes."
+	echo "Saindo do configurador..."
+	read -t 5
+
+fi
+
+fi
+
+if (ls | grep TRAB1.SDF)
+		then
+	MV TRAB1.SDF TRAB1cx$NECF.SDF
+
+if (ls $path/MV |grep "Vendas$data")
+		then
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+			else
+	mkdir -p $path/MV/Vendas$data
+	cp -rf TRAB1cx$NECF.SDF $path/MV/Vendas$data
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel criar TRAB1.SDF para ECF $NECF" >> $path/MV/SDF_info >> /dev/null
+	cd $path/MV
+fi
+
+			else
+	echo "Nao foi possivel achar a pasta $data.025" >> $path/MV/DataECF_info >> /dev/null
+
+fi
+#fi
+##Fim Conversao
+#Fim Date
+##Fim MV alternativo
+fi

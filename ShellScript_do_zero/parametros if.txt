@@ -1,0 +1,39 @@
+if [ opcao $variavel ]
+then
+comando
+else
+outrocomando
+fi
+
+-eq	Igual
+-ne	Diferente
+-gt	Maior
+-lt	Menor
+-o	Ou
+-d	Se for um diretório
+-e	Se existir
+-z	Se estiver vazio
+-f	Se conter texto
+-o	Se o usuário for o dono
+-r	Se o arquivo pode ser lido
+-w	Se o arquivo pode ser alterado
+-x	Se o arquivo pode ser executado
+
+
+Exemplo:
+
+#!/bin/bash
+
+numero=$(echo $*)
+
+if [ -z $numero ]
+then
+echo "nao tem nada"
+else
+if [ $numero -gt 0 ]
+then
+echo "digitei o numero $numero"
+else
+echo "none"
+fi
+fi
