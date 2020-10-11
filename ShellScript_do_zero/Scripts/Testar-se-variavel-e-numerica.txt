@@ -11,3 +11,39 @@ echo "numerico"
 else
 echo "nao numerico"
 fi
+
+Mais exemplos:
+
+numero="$1"
+
+# Expressão aceita apenas Nº 1 ou maior, também -1 ou menor
+if expr "$numero" + 0 > /dev/null 2> /dev/null
+then
+    	echo "É número!"
+else
+    	echo "NÃO é número!"
+fi
+
+# Expressão que aceita Nº 0 ou maior, -2 ou menor
+if expr "$numero" + 1 > /dev/null 2> /dev/null
+then
+    	echo "É número!"
+else
+    	echo "NÃO é número!"
+fi
+
+# Expressao que aceita qualquer número, - e +
+if [[ "$numero" = ?(+|-)+([0-9]) ]] ; then
+echo "Numerico"
+else
+echo "Nao numerico"
+fi
+
+# Expressão que aceita números igual ou maior que 0, limite de 2 casas
+case "$numero" in
+   [0-9])     echo "$numero" ;;
+   [0-9][0-9])     echo "$numero" ;;
+   *)
+     	echo "Deve digitar um numero"
+   ;;
+esac
